@@ -153,9 +153,12 @@ dmypy.json
 
 # kapsel
 restart.udf
+output.udf
 
 # addition
 output
 *.ipynb
 particelshow.py
 particelshow_with_avs.py
+*.err
+*.out
