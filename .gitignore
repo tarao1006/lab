@@ -150,3 +150,10 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/macos,python,jupyternotebooks
+
+# kapsel
+restart.udf
+
+# addition
+particelshow.py
+particelshow_with_avs.py
