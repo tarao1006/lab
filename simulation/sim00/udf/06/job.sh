@@ -15,4 +15,4 @@
 #$ -v OMP_SCHEDULE="static"
 # run
 
-kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf
+~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf
