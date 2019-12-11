@@ -155,6 +155,7 @@ dmypy.json
 restart.udf
 
 # addition
+output
 *.ipynb
 particelshow.py
 particelshow_with_avs.py
