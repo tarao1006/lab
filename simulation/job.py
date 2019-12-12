@@ -223,7 +223,7 @@ if __name__ == "__main__":
     print(is_first)
     if is_first:
         simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
-        print(simulation_doirs)
+        print(simulation_dirs)
         if len(simulation_dirs) >= 0:
             with open('_dirs.pickle', 'wb') as f:
                 pickle.dump(simulation_dirs, f)
@@ -233,7 +233,7 @@ if __name__ == "__main__":
     if not donot_do:
         dirs_pickle = Path('_dirs.pickle')
         sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
-        cmd = 'll'
+        cmd = 'ls -al'
         for sim_dir in sim_dirs:
             cwd = str(sim_dir)
             with (sim_dir / 'output.txt').open(mode='wb') as f:
