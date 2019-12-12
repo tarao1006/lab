@@ -2,7 +2,10 @@
 指定したディレクトリを探索し、input.udfとdefine.udfが存在した場合、
 そのディレクトリを保存する。全て探索したのちに、保存したディレクトリに
 移動しながらkapselを実行する。
+
+qsub job.sh -N job -o std.out -e std.err -v HOGE='hoge'
 """
+import os
 import glob
 import pickle
 import subprocess
@@ -145,15 +148,18 @@ def extracet_list(filename, path_dir=None, max_count=1) -> list:
 
 
 if __name__ == "__main__":
-    simulation_dirs = scan_kapsel_simulation_dirs(path_dir='./sim00')
-    if len(simulation_dirs) >= 0:
-        with open('dirs.pickle', 'wb') as f:
-            pickle.dump(simulation_dirs, f)
+    with open('test.txt', 'w') as f:
+        f.write(os.getenv('HOGE'))
 
-    cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
+    # simulation_dirs = scan_kapsel_simulation_dirs(path_dir='./sim00')
+    # if len(simulation_dirs) >= 0:
+    #     with open('dirs.pickle', 'wb') as f:
+    #         pickle.dump(simulation_dirs, f)
 
-    sim_dirs = extracet_list('dirs.pickle', max_count=8)
-    print(sim_dirs)
+    # cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
+
+    # sim_dirs = extracet_list('dirs.pickle', max_count=8)
+    # print(sim_dirs)
     # if sim_dirs is not None:
     #     for sim_dir in sim_dirs:
     #         cwd = str(sim_dir)
