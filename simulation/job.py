@@ -3,9 +3,10 @@
 そのディレクトリを保存する。全て探索したのちに、保存したディレクトリに
 移動しながらkapselを実行する。
 
-qsub -N job -o std.out -e std.err -v SIM_NUM="00" job.sh
+qsub -N job -o std.out -e std.err -v SIM_NUM=0 MAX_COUNT=8 -q uni1.q job.sh
 """
 import os
+import sys
 import glob
 import pickle
 import subprocess
@@ -13,6 +14,10 @@ from pathlib import Path
 from collections.abc import Sequence
 from functools import partial
 from copy import deepcopy
+
+
+class SumulationNotSelectedError(Exception):
+    pass
 
 
 def get_lines(cmd, cwd):
@@ -149,6 +154,20 @@ def extracet_list(filename, path_dir=None, max_count=1) -> list:
 
 if __name__ == "__main__":
     sim_num = os.getenv('SIM_NUM')
+    max_count = os.getenv('MAX_COUNT')
+
+    if sim_num is None:
+        raise SumulationNotSelectedError("select simulation nuber using like -v SIM_NUM=0")
+        sys.exit(1)
+    else:
+        sim_num = int(sim_num)
+    sim_num_str = f'{sim_num:0=2}'
+
+    if max_count is None:
+        max_count = 4
+    else:
+        max_count = int(max_count)
+
     simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num}')
     if len(simulation_dirs) >= 0:
         with open('dirs.pickle', 'wb') as f:
@@ -156,11 +175,17 @@ if __name__ == "__main__":
 
     cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
 
-    sim_dirs = extracet_list('dirs.pickle', max_count=8)
-    print(sim_dirs)
-    # if sim_dirs is not None:
-    #     for sim_dir in sim_dirs:
-    #         cwd = str(sim_dir)
-    #         with (sim_dir / 'output.txt').open(mode='wb') as f:
-    #             for line in get_lines(cmd=cmd, cwd=cwd):
-    #                 f.write(line)
+    dirs_pickle = Path('dirs.pickle')
+    sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
+    if sim_dirs is None:
+        print(f"End of 'sim{sim_num}'")
+        print(f"Delete {dirs_pickle}...")
+        dirs_pickle.unlink()
+        print("Done")
+    else:
+        print(sim_dirs)
+        # for sim_dir in sim_dirs:
+        #     cwd = str(sim_dir)
+        #     with (sim_dir / 'output.txt').open(mode='wb') as f:
+        #         for line in get_lines(cmd=cmd, cwd=cwd):
+        #             f.write(line)
