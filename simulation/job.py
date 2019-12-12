@@ -187,10 +187,10 @@ if __name__ == "__main__":
     dirs_pickle = Path('dirs.pickle')
     sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
     if sim_dirs is None:
-        print(f"End of 'sim{sim_num}'", file=sys.stderr)
-        print(f"Delete {dirs_pickle}...", file=sys.stderr)
+        print(f"End of 'sim{sim_num}'", file=sys.stdout)
+        print(f"Delete {dirs_pickle}...", file=sys.stdout)
         dirs_pickle.unlink()
-        print("Done", file=sys.stderr)
+        print("Done", file=sys.stdout)
     else:
         print(sim_dirs)
         for sim_dir in sim_dirs:
