@@ -3,7 +3,7 @@
 そのディレクトリを保存する。全て探索したのちに、保存したディレクトリに
 移動しながらkapselを実行する。
 
-qsub -N job -o std.out -e std.err -v SIM_NUM=0 MAX_COUNT=8 -q uni1.q job.sh
+qsub -N job -o std.out -e std.err -v SIM_NUM=0 -v MAX_COUNT=8 -v IS_FIRST=1 -q uni1.q job.sh
 """
 import os
 import sys
@@ -153,8 +153,14 @@ def extracet_list(filename, path_dir=None, max_count=1) -> list:
 
 
 if __name__ == "__main__":
+    is_first = os.getenv('IS_FIRST')
     sim_num = os.getenv('SIM_NUM')
     max_count = os.getenv('MAX_COUNT')
+
+    if is_first is None:
+        is_first = False
+    else:
+        is_first = True
 
     if sim_num is None:
         raise SumulationNotSelectedError("select simulation nuber using like -v SIM_NUM=0")
@@ -168,10 +174,11 @@ if __name__ == "__main__":
     else:
         max_count = int(max_count)
 
-    simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num}')
-    if len(simulation_dirs) >= 0:
-        with open('dirs.pickle', 'wb') as f:
-            pickle.dump(simulation_dirs, f)
+    if is_first:
+        simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num}')
+        if len(simulation_dirs) >= 0:
+            with open('dirs.pickle', 'wb') as f:
+                pickle.dump(simulation_dirs, f)
 
     cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
 
