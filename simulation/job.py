@@ -230,7 +230,7 @@ if __name__ == "__main__":
     cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
 
     if not donot_do:
-        dirs_pickle = Path('dirs.pickle')
+        dirs_pickle = Path('_dirs.pickle')
         sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
         cmd = 'll'
         for sim_dir in sim_dirs:
