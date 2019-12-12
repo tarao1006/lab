@@ -115,7 +115,7 @@ def scan_dir(filenames, path_dir=None) -> list:
     return dirs
 
 
-scan_kapsel_simulation_dirs = partial(scan_dir, contents=['input.udf', 'define.udf'])
+scan_kapsel_simulation_dirs = partial(scan_dir, fileneames=['input.udf', 'define.udf'])
 
 
 def extracet_list(pickled_filename, path_dir=None, max_count=1, with_delete=False) -> list:
