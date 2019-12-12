@@ -231,21 +231,13 @@ if __name__ == "__main__":
     cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
 
     if not donot_do:
-        dirs_pickle = Path('_dirs.pickle')
+        dirs_pickle = Path('dirs.pickle')
         sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
-        cmd = 'ls -al'
-        for sim_dir in sim_dirs:
-            cwd = str(sim_dir)
-            with (sim_dir / 'output.txt').open(mode='wb') as f:
-                for line in get_lines(cmd=cmd, cwd=cwd):
-                    f.write(line)
-        # dirs_pickle = Path('dirs.pickle')
-        # sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
-        # if sim_dirs is None:
-        #     print(f"End of 'sim{sim_num}'", file=sys.stdout)
-        # else:
-        #     for sim_dir in sim_dirs:
-        #         cwd = str(sim_dir)
-        #         with (sim_dir / 'output.txt').open(mode='wb') as f:
-        #             for line in get_lines(cmd=cmd, cwd=cwd):
-        #                 f.write(line)
+        if sim_dirs is None:
+            print(f"End of 'sim{sim_num}'", file=sys.stdout)
+        else:
+            for sim_dir in sim_dirs:
+                cwd = str(sim_dir)
+                with (sim_dir / 'output.txt').open(mode='wb') as f:
+                    for line in get_lines(cmd=cmd, cwd=cwd):
+                        f.write(line)
