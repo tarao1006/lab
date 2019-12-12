@@ -175,7 +175,7 @@ if __name__ == "__main__":
         max_count = int(max_count)
 
     if is_first:
-        simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num}')
+        simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
         if len(simulation_dirs) >= 0:
             with open('dirs.pickle', 'wb') as f:
                 pickle.dump(simulation_dirs, f)
