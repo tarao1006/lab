@@ -224,7 +224,7 @@ if __name__ == "__main__":
     if is_first:
         simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
         if len(simulation_dirs) >= 0:
-            with open('dirs.pickle', 'wb') as f:
+            with open('_dirs.pickle', 'wb') as f:
                 pickle.dump(simulation_dirs, f)
 
     cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
