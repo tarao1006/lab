@@ -9,6 +9,7 @@ import subprocess
 from pathlib import Path
 from collections.abc import Sequence
 from functools import partial
+from copy import deepcopy
 
 
 def get_lines(cmd, cwd):
@@ -35,17 +36,17 @@ def get_lines(cmd, cwd):
 
 
 def scan_dir(contents, path_dir=None) -> list:
-    """
+    """Look for dirs which have contents.
 
     Parameters
     ----------
     contents: str or list of str
         File list to look for. This must have more than 2.
-    path_dir: str, Path or None
+    path_dir: str or None
 
     Returns
     -------
-    sequence of Path or None
+    list of Path
         Directories which have both of input.udf and defin.udf.
         If path_dir is invalid or there is no directories which
         have both of input.udf and defin.udf, return None.
@@ -57,9 +58,14 @@ def scan_dir(contents, path_dir=None) -> list:
                         f"but {contents} have {len(contents)} elemtent.")
 
     if path_dir is None:
-        path_dir = Path('.')
-    if not (isinstance(path_dir, str) or isinstance(path_dir, Path)):
+        path_dir = '.'
+    if not isinstance(path_dir, str):
         raise TypeError(f"'{path_dir}' is not str. path_dir must be str.")
+
+    if path_dir == '.':
+        path_dir = Path.cwd()
+    elif path_dir.startswith('./'):
+        path_dir = Path.cwd() / str(path_dir)[2:]
 
     path_dir = Path(path_dir)
 
@@ -73,7 +79,10 @@ def scan_dir(contents, path_dir=None) -> list:
             dirs = dirs & file_set
 
     if dirs == set():
-        return None
+        return []
+
+    dirs = list(dirs)
+    dirs.sort()
 
     return dirs
 
@@ -81,11 +90,73 @@ def scan_dir(contents, path_dir=None) -> list:
 scan_kapsel_simulation_dirs = partial(scan_dir, contents=['input.udf', 'define.udf'])
 
 
-if __name__ == "__main__":
-    simulation_dirs = scan_kapsel_simulation_dirs(path_dir='.')
-    with open('dirs.pickle', 'wb') as f:
-        pickle.dump(simulation_dirs, f)
-    with open('dirs.pickle', 'rb') as f:
+def extracet_list(filename, path_dir=None, max_count=1) -> list:
+    """Extract some elements from pickled list.
+
+    Parameters
+    ----------
+    filename: str or Path
+        Pickle file to load.
+    path_dir: str, Path or None
+    max_count: int
+        Maximun count of extraction.
+
+    Returns
+    -------
+    list of str:
+        Extracted list.
+
+    Raises
+    ------
+    FileNotFoundError:
+        If file does not exist.
+    """
+    if isinstance(filename, str):
+        filename = Path(filename)
+    if not isinstance(filename, Path):
+        raise TypeError(f"filename must be str or pathlib.Path")
+
+    if path_dir is None:
+        path_dir = Path('.')
+    if not (isinstance(path_dir, str) or isinstance(path_dir, Path)):
+        raise TypeError(f"path_dir must be str.")
+
+    path_dir = Path(path_dir)
+
+    if not isinstance(max_count, int):
+        raise TypeError(f"max_count must be int")
+
+    full_filename = path_dir / filename
+    with full_filename.open(mode='rb') as f:
         dirs = pickle.load(f)
 
-    print(dirs)
+    if len(dirs) == 0:
+        return
+    if len(dirs) <= max_count:
+        max_count = len(dirs)
+
+    extracted_list = deepcopy(dirs[:max_count])
+
+    remain_list = dirs[max_count:]
+    with full_filename.open(mode='wb') as f:
+        pickle.dump(remain_list, f)
+
+    return extracted_list
+
+
+if __name__ == "__main__":
+    simulation_dirs = scan_kapsel_simulation_dirs(path_dir='./sim00')
+    if len(simulation_dirs) >= 0:
+        with open('dirs.pickle', 'wb') as f:
+            pickle.dump(simulation_dirs, f)
+
+    cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
+
+    sim_dirs = extracet_list('dirs.pickle', max_count=8)
+    print(sim_dirs)
+    # if sim_dirs is not None:
+    #     for sim_dir in sim_dirs:
+    #         cwd = str(sim_dir)
+    #         with (sim_dir / 'output.txt').open(mode='wb') as f:
+    #             for line in get_lines(cmd=cmd, cwd=cwd):
+    #                 f.write(line)
