@@ -163,7 +163,9 @@ if __name__ == "__main__":
         is_first = True
 
     if sim_num is None:
-        raise SumulationNotSelectedError("select simulation nuber using like -v SIM_NUM=0")
+        raise SumulationNotSelectedError(
+            "select simulation nuber using command line argument like '-v SIM_NUM=0'"
+        )
         sys.exit(1)
     else:
         sim_num = int(sim_num)
@@ -185,14 +187,14 @@ if __name__ == "__main__":
     dirs_pickle = Path('dirs.pickle')
     sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
     if sim_dirs is None:
-        print(f"End of 'sim{sim_num}'")
-        print(f"Delete {dirs_pickle}...")
+        print(f"End of 'sim{sim_num}'", file=sys.stderr)
+        print(f"Delete {dirs_pickle}...", file=sys.stderr)
         dirs_pickle.unlink()
-        print("Done")
+        print("Done", file=sys.stderr)
     else:
         print(sim_dirs)
-        # for sim_dir in sim_dirs:
-        #     cwd = str(sim_dir)
-        #     with (sim_dir / 'output.txt').open(mode='wb') as f:
-        #         for line in get_lines(cmd=cmd, cwd=cwd):
-        #             f.write(line)
+        for sim_dir in sim_dirs:
+            cwd = str(sim_dir)
+            with (sim_dir / 'output.txt').open(mode='wb') as f:
+                for line in get_lines(cmd=cmd, cwd=cwd):
+                    f.write(line)
