@@ -4,9 +4,9 @@ qsub -N job -o std.out -e std.err -v SIM_NUM=0 -v MAX_COUNT=8 -v IS_FIRST=1 -q u
 
 Parameters
 ----------
-SIM_NUM: int (0~999)
+SIM_NUM: int (0~99)
     Main simulation number.
-SUB_SIM_NUM: int (0~999) [optional]
+SUB_SIM_NUM: int (0~99) [optional]
     Sub simulation number.
 MAX_COUNT: int, default 4[optional]
     Extract count.
@@ -208,11 +208,11 @@ if __name__ == "__main__":
         sys.exit(1)
     else:
         sim_num = int(sim_num)
-    sim_num_str = f'{sim_num:0=3}'
+    sim_num_str = f'{sim_num:0=2}'
 
     if sub_sim_num is not None:
         sub_sim_num = int(sub_sim_num)
-        sub_sim_num_str = f'{sub_sim_num:0=3}'
+        sub_sim_num_str = f'{sub_sim_num:0=2}'
 
         sim_num_str += f'-{sub_sim_num_str}'
 
