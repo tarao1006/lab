@@ -118,7 +118,7 @@ def scan_dir(filenames, path_dir=None) -> list:
 scan_kapsel_simulation_dirs = partial(scan_dir, contents=['input.udf', 'define.udf'])
 
 
-def extracet_list(pickled_filename, path_dir=None, max_count=1) -> list:
+def extracet_list(pickled_filename, path_dir=None, max_count=1, with_delete=False) -> list:
     """Extract some elements from pickled list.
 
     Parameters
@@ -130,6 +130,8 @@ def extracet_list(pickled_filename, path_dir=None, max_count=1) -> list:
         pickled_filename need to be absolute or be in the cwd.
     max_count: int
         Maximun count to extract.
+    with_delete: bool
+        If delete pickle when remain_dirs is empty.
 
     Returns
     -------
@@ -164,7 +166,7 @@ def extracet_list(pickled_filename, path_dir=None, max_count=1) -> list:
     with full_filename.open(mode='rb') as f:
         dirs = pickle.load(f)
 
-    if len(dirs) == 0:
+    if len(dirs) == 0 and with_delete:
         full_filename.unlink()
         return
     if len(dirs) <= max_count:
@@ -173,7 +175,7 @@ def extracet_list(pickled_filename, path_dir=None, max_count=1) -> list:
     extracted_list = deepcopy(dirs[:max_count])
 
     remain_list = dirs[max_count:]
-    if len(remain_list) == 0:
+    if len(remain_list) == 0 and with_delete:
         full_filename.unlink()
     else:
         with full_filename.open(mode='wb') as f:
@@ -230,11 +232,19 @@ if __name__ == "__main__":
     if not donot_do:
         dirs_pickle = Path('dirs.pickle')
         sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
-        if sim_dirs is None:
-            print(f"End of 'sim{sim_num}'", file=sys.stdout)
-        else:
-            for sim_dir in sim_dirs:
-                cwd = str(sim_dir)
-                with (sim_dir / 'output.txt').open(mode='wb') as f:
-                    for line in get_lines(cmd=cmd, cwd=cwd):
-                        f.write(line)
+        cmd = 'll'
+        for sim_dir in sim_dirs:
+            cwd = str(sim_dir)
+            with (sim_dir / 'output.txt').open(mode='wb') as f:
+                for line in get_lines(cmd=cmd, cwd=cwd):
+                    f.write(line)
+        # dirs_pickle = Path('dirs.pickle')
+        # sim_dirs = extracet_list(dirs_pickle, max_count=max_count)
+        # if sim_dirs is None:
+        #     print(f"End of 'sim{sim_num}'", file=sys.stdout)
+        # else:
+        #     for sim_dir in sim_dirs:
+        #         cwd = str(sim_dir)
+        #         with (sim_dir / 'output.txt').open(mode='wb') as f:
+        #             for line in get_lines(cmd=cmd, cwd=cwd):
+        #                 f.write(line)
