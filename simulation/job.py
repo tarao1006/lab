@@ -53,7 +53,7 @@ def scan_dir(contents, path_dir=None) -> list:
     if not isinstance(contents, Sequence):
         raise TypeError(f"contents have to be sequence type, but '{contents}' is {type(contents)}")
     if len(contents) < 2:
-        raise TypeError(f"contents have to more than 2 elements, "
+        raise TypeError(f"contents have to be more than 2 elements, "
                         f"but {contents} have {len(contents)} elemtent.")
 
     if path_dir is None:
