@@ -197,7 +197,7 @@ if __name__ == "__main__":
         is_first = True
 
     if donot_do is None:
-        is_first = False
+        donot_do = False
     else:
         donot_do = True
 
