@@ -157,6 +157,7 @@ output.udf
 
 # addition
 output
+output.txt
 *.ipynb
 particelshow.py
 particelshow_with_avs.py
