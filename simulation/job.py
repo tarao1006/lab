@@ -214,15 +214,16 @@ if __name__ == "__main__":
         sub_sim_num = int(sub_sim_num)
         sub_sim_num_str = f'{sub_sim_num:0=2}'
 
-        sim_num_str += f'-{sub_sim_num_str}'
-
     if max_count is None:
         max_count = 4
     else:
         max_count = int(max_count)
 
     if is_first:
-        simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
+        if sim_num_str:
+            simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}/sim{sim_num_str}-{sub_sim_num_str}')
+        else:
+            simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
         if len(simulation_dirs) >= 0:
             with open('dirs.pickle', 'wb') as f:
                 pickle.dump(simulation_dirs, f)
