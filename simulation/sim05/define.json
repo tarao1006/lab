@@ -38,7 +38,7 @@
         "external_field": {
           "select_type": "DC",
           "dc": {
-            "shear_rate": 0.1
+            "shear_rate": 0.001
           },
           "ac": {
             "shear_rate": 0.1,
