@@ -210,9 +210,9 @@
       "slip_tol": 0.01,
       "slip_iter": 4,
       "fix_cell": {
-        "x": "OFF",
-        "y": "OFF",
-        "z": "OFF"
+        "x": "ON",
+        "y": "ON",
+        "z": "ON"
       },
       "pin": {
         "select_type": "NO",
@@ -226,19 +226,19 @@
         }
       },
       "free_rigid": {
-        "select_type": "NO",
+        "select_type": "YES",
         "YES": {
           "DOF": [
             {
               "spec_id": 0,
               "vel": {
-                "x": "YES",
-                "y": "YES",
-                "z": "YES"
+                "x": "NO",
+                "y": "NO",
+                "z": "NO"
               },
               "omega": {
-                "x": "YES",
-                "y": "YES",
+                "x": "NO",
+                "y": "NO",
                 "z": "YES"
               }
             }

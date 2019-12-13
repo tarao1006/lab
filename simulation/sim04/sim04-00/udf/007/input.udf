@@ -215,9 +215,9 @@ switch: {
     0.01, 
     4, 
     {
-        "OFF", 
-        "OFF", 
-        "OFF"  
+        "ON", 
+        "ON", 
+        "ON"  
     }, 
     {
         "NO", 
@@ -231,19 +231,19 @@ switch: {
         }
     }, 
     {
-        "NO", 
+        "YES", 
         {
             [
                 {
                     0, 
                     {
-                        "YES", 
-                        "YES", 
-                        "YES"  
+                        "NO", 
+                        "NO", 
+                        "NO"  
                     }, 
                     {
-                        "YES", 
-                        "YES", 
+                        "NO", 
+                        "NO", 
                         "YES"  
                     }
                 }
