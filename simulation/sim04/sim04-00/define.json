@@ -210,9 +210,9 @@
       "slip_tol": 0.01,
       "slip_iter": 4,
       "fix_cell": {
-        "x": "ON",
-        "y": "ON",
-        "z": "ON"
+        "x": "OFF",
+        "y": "OFF",
+        "z": "OFF"
       },
       "pin": {
         "select_type": "NO",

@@ -215,9 +215,9 @@ switch: {
     0.01, 
     4, 
     {
-        "ON", 
-        "ON", 
-        "ON"  
+        "OFF", 
+        "OFF", 
+        "OFF"  
     }, 
     {
         "NO", 
@@ -257,7 +257,7 @@ switch: {
 
 output: {
     100, 
-    400, 
+    100, 
     "ON", 
     {
         "output", 
