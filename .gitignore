@@ -158,6 +158,7 @@ output.udf
 # addition
 output
 output.txt
+output.csv
 *.ipynb
 init.py
 particelshow.py
