@@ -2,7 +2,7 @@
 
 # Usage
 ```
-qsub -N job -o std.out -e std.err -v SIM_NUM=1 -v MAX_COUNT=8 -v IS_FIRST=1 -q uni1.q job.sh
+qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q uni1.q job.sh
 ```
 環境変数を用いて、コマンドライン引数をpythonに渡します。
 
