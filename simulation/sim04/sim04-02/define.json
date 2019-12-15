@@ -3,12 +3,12 @@
     "constitutive_eq": {
       "select_type": "Shear_Navier_Stokes",
       "navier_stokes": {
-        "dx": 1.0,
-        "rho": 1.0,
-        "eta": 1.0,
+        "dx": 0.0,
+        "rho": 0.0,
+        "eta": 0.0,
         "kbt": 0.0,
-        "alpha_v": 1.0,
-        "alpha_o": 1.0
+        "alpha_v": 0.0,
+        "alpha_o": 0.0
       },
       "shear_navier_stokes": {
         "dx": 1.0,
@@ -23,36 +23,36 @@
             "shear_rate": 0.05
           },
           "ac": {
-            "shear_rate": 0.1,
+            "shear_rate": 0.0,
             "frequency": 0.0
           }
         }
       },
       "shear_navier_stokes_lees_edwards": {
-        "dx": 1.0,
-        "rho": 1.0,
-        "eta": 1.0,
+        "dx": 0.0,
+        "rho": 0.0,
+        "eta": 0.0,
         "kbt": 0.0,
-        "alpha_v": 1.0,
-        "alpha_o": 1.0,
+        "alpha_v": 0.0,
+        "alpha_o": 0.0,
         "external_field": {
           "select_type": "DC",
           "dc": {
-            "shear_rate": 0.1
+            "shear_rate": 0.0
           },
           "ac": {
-            "shear_rate": 0.1,
+            "shear_rate": 0.0,
             "frequency": 0.0
           }
         }
       },
       "electrolyte": {
-        "dx": 1.0,
-        "rho": 1.0,
-        "eta": 1.0,
+        "dx": 0.0,
+        "rho": 0.0,
+        "eta": 0.0,
         "kbt": 0.0,
-        "alpha_v": 1.0,
-        "alpha_o": 1.0,
+        "alpha_v": 0.0,
+        "alpha_o": 0.0,
         "dielectric_cst": 0.0,
         "init_profile": "Uniform",
         "add_salt": {
@@ -226,19 +226,19 @@
         }
       },
       "free_rigid": {
-        "select_type": "NO",
+        "select_type": "YES",
         "YES": {
           "DOF": [
             {
               "spec_id": 0,
               "vel": {
-                "x": "YES",
-                "y": "YES",
-                "z": "YES"
+                "x": "NO",
+                "y": "NO",
+                "z": "NO"
               },
               "omega": {
-                "x": "YES",
-                "y": "YES",
+                "x": "NO",
+                "y": "NO",
                 "z": "YES"
               }
             }
