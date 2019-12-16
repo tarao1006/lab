@@ -8,147 +8,34 @@ qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q
 
 |値|型|概要|
 |:-:|:-:|:-:|
-|SIM_NUM|int (0~9)|ディレクトリの番号|
+|SIM_NUM|int (0~99)|ディレクトリの番号|
 |MAX_COUNT|int|一つのジョブで担当するシミュレーションの最大数|
 |IS_FIRST|bool|初回の実行かどうか。初回の場合、ディレクトリのリストを作成します。|
 
 # Summary
-## sim00
+## sim00 ~ sim03, sim05 ~ sim12
 squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。
 
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.1|
-|janus_slip_mode|0.5|
-
-## sim01
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.05|
-|janus_slip_mode|0.5|
-
-## sim02
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。sim00との比較用で、fix_cellをONにした場合とOFFの違いを調べます。
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.1|
-|janus_slip_mode|0.5|
-
-## sim03
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。sim01との比較用で、fix_cellをONにした場合とOFFの違いを調べます。
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.05|
-|janus_slip_mode|0.5|
+|param          |sim00/sim01|sim02/sim03|sim05/sim06|sim07/sim08|sim09/sim10|sim11/sim12|
+|:-:            |        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|
+|shrear_rate    |        0.0|        0.0|      0.001|        0.0|        0.0|        0.0|
+|janus_slip_vel |   0.1/0.05|   0.1/0.05|        0.1|   0.1/0.05|   0.1/0.05|      0.001|
+|janus_slip_mode|        0.5|        0.5|        0.5|        0.5|        0.5|         50|
+|free_rigid     |        YES|        YES|        YES|         NO|         NO|         NO|
+|fix_cell       |        OFF|         ON|     OFF/ON|         ON|        OFF|     OFF/ON|
 
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
 
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.05 ~ 0.1|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-|janus_slip_mode|0.5|
-|PIN|NO|
+|param          |          value|
+|:-:            |            :-:|
+|shrear_rate    |     0.05 ~ 0.1|
+|janus_slip_vel |0.0, 0.05 ~ 0.1|
+|janus_slip_mode|            0.5|
+|PIN            |             NO|
 
-### sim04-00
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.05|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim04-01
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.06|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim04-02
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.07|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim04-03
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.08|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim04-04
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.09|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim04-05
-|param|value|
-|:-:|:-:|
-|shrear_rate|0.1|
-|janus_slip_vel|0.0, 0.05 ~ 0.1|
-
-### sim05
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。sim00でshear_rateを0.0に設定しましたが粘度がマイナスになったり、値が1からかけ離れたり、正常なシミュレーションが行えていないようなので、shear_rateと0.001としてシミュレーションを行なってみます。cf. sim00
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.001|
-|janus_slip_vel|0.1|
-|janus_slip_mode|0.5|
-|fix_cell.x|OFF|
-|fix_cell.y|OFF|
-|fix_cell.z|OFF|
-
-### sim06
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。sim00でshear_rateを0.0に設定しましたが粘度がマイナスになったり、値が1からかけ離れたり、正常なシミュレーションが行えていないようなので、shear_rateと0.001としてシミュレーションを行なってみます。cf. sim02
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.001|
-|janus_slip_vel|0.1|
-|janus_slip_mode|0.5|
-|fix_cell.x|ON|
-|fix_cell.y|ON|
-|fix_cell.z|ON|
-
-### sim07
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。新たに行なったシミュレーションの結果が想定される結果ではなかったので、過去に用いたudfファイルを用いてシミュレーションを行います。
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.1|
-|janus_slip_mode|0.5|
-|fix_cell.x|ON|
-|fix_cell.y|ON|
-|fix_cell.z|ON|
-
-### sim08
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。新たに行なったシミュレーションの結果が想定される結果ではなかったので、過去に用いたudfファイルを用いてシミュレーションを行います。
-
-|param|value|
-|:-:|:-:|
-|constitutive_eq.type|Shear_Navier_Stokes|
-|shrear_rate|0.0|
-|janus_slip_vel|0.05|
-|janus_slip_mode|0.5|
-|fix_cell.x|ON|
-|fix_cell.y|ON|
-|fix_cell.z|ON|
-
+### sim04-00 ~ sim04-05
+|param         |       sim04-00|       sim04-01|       sim04-02|       sim04-03|       sim04-04|       sim04-05|
+|:-:           |            :-:|            :-:|            :-:|            :-:|            :-:|            :-:|
+|shrear_rate   |           0.05|           0.06|           0.07|           0.08|           0.09|           0.10|
+|janus_slip_vel|0.0, 0.05 ~ 0.1|0.0, 0.05 ~ 0.1|0.0, 0.05 ~ 0.1|0.0, 0.05 ~ 0.1|0.0, 0.05 ~ 0.1|0.0, 0.05 ~ 0.1|
