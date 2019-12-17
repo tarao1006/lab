@@ -14,7 +14,7 @@ qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q
 
 # Summary
 ## sim00 ~ sim03, sim05 ~ sim12
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。free_rigidをYESに設定しているシミュレーションは、おそらく計算結果がよくないです。また、sim07/sim08については、0 ~ 360を10度ずつ分割しているので、将来的に分割数を32に変更したシミュレーションを行いたい。
+squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。free_rigidをYESに設定しているシミュレーションは、おそらく計算結果がよくないです。また、sim07/sim08とsim13/sim14は、分割数のみの違いです。グラフを比較した結果、free_rigidの値は結果に影響を与えないことが分かった。
 
 |param          |sim00/sim01|sim02/sim03|sim05/sim06|sim07/sim08|sim09/sim10|sim11/sim12|sim13/sim14|
 |:-:            |        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|
