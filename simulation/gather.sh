@@ -1,5 +1,6 @@
 #!/bin/sh
 
+: > all_data.txt
 for i in `seq 1 32`
 do
 	j=`printf %02d $i`
