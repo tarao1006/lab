@@ -13,8 +13,8 @@ qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q
 |IS_FIRST|bool|初回の実行かどうか。初回の場合、ディレクトリのリストを作成します。|
 
 # Summary
-## sim00 ~ sim03, sim05 ~ sim12
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。free_rigidをYESに設定しているシミュレーションは、おそらく計算結果がよくないです。また、sim07/sim08とsim13/sim14は、分割数のみの違いです。グラフを比較した結果、free_rigidの値は結果に影響を与えないことが分かった。
+## sim00 ~ sim03, sim05 ~ sim14
+squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。グラフを比較した結果、free_rigidの値は結果に影響を与えないようです。また、sim11/sim12を比較した時、fix_cellの違いはシミュレーション結果に影響を与えませんでした。sim07/sim08とsim13/sim14は、分割数のみの違いです。
 
 |param          |sim00/sim01|sim02/sim03|sim05/sim06|sim07/sim08|sim09/sim10|sim11/sim12|sim13/sim14|
 |:-:            |        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|
@@ -23,6 +23,16 @@ squirmerの進行方向の違いによるせん断応力の変化を調べるシ
 |janus_slip_mode|        0.5|        0.5|        0.5|        0.5|        0.5|         50|        0.5|
 |free_rigid     |        YES|        YES|        YES|         NO|         NO|         NO|         NO|
 |fix_cell       |        OFF|         ON|     OFF/ON|         ON|        OFF|     OFF/ON|         ON|
+
+## sim15
+HDF5のテストの為のシミュレーションです。
+
+|param          |sim15|
+|:-:            |  :-:|
+|shear_rate     |  0.0|
+|janus_slip_vel |0.001|
+|janus_slip_mode|   50|
+|fix_cell       |   ON|
 
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
