@@ -131,13 +131,13 @@
                     "yes": {
                         "slab_x": {
                             "start": 0,
-                            "count": 4,
-                            "stride": 8
+                            "count": 8,
+                            "stride": 4
                         },
                         "slab_y": {
                             "start": 0,
-                            "count": 4,
-                            "stride": 8
+                            "count": 8,
+                            "stride": 4
                         },
                         "slab_z": {
                             "start": 0,
