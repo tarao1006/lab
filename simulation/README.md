@@ -51,10 +51,10 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 
  |param          |sim17|
  |:-:            |  :-:|
- |gravity        |  1.0|
- |shear_rate     |  0.0|
- |janus_slip_vel |0.001|
- |janus_slip_mode|   50|
+ |gravity        |  0.0|
+ |shear_rate     |  0.1|
+ |janus_slip_vel |  0.1|
+ |janus_slip_mode|  0.5|
  |PIN            |  YES|
  |free_rigid     |  YES|
 
