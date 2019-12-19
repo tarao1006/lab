@@ -46,6 +46,18 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |PIN            |      NO|
 |free_rigid     |      NO|
 
+## sim17
+粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
+
+ |param          |sim17|
+ |:-:            |  :-:|
+ |gravity        |  1.0|
+ |shear_rate     |  0.0|
+ |janus_slip_vel |0.001|
+ |janus_slip_mode|   50|
+ |PIN            |  YES|
+ |free_rigid     |  YES|
+
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
 
