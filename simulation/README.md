@@ -34,12 +34,17 @@ HDF5のテストの為のシミュレーションです。
 |janus_slip_mode|   50|
 |fix_cell       |   ON|
 
-## sim16
+## sim16 (dmo00)
 bottom heavyの影響を考えた計算が正しいかを確認するシミュレーションです。
 
-|sim num|  repo|
-|:-:    |   :-:|
-|16     |[demo0](https://github.com/tarao1006/kapsel3/tree/demo0)|
+|param          |sim16-00|sim16-01|sim16-02|
+|:-:            |     :-:|     :-:|     :-:|
+|gravity        |     1.0|     5.0|    10.0|
+|shrear_rate    |     0.0|
+|janus_slip_vel |   0.001|
+|janus_slip_mode|      50|
+|PIN            |      NO|
+|free_rigid     |      NO|
 
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
