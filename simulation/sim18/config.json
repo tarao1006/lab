@@ -47,7 +47,7 @@
     "a_xi": 2.0,
     "a": 5.0,
     "gravity": {
-        "g": 1.0,
+        "g": 0.0,
         "g_direction": "-Y"
     },
     "lj_powers": "36:18",
@@ -140,7 +140,7 @@
     },
     "output": {
         "gts": 100,
-        "num_snap": 400,
+        "num_snap": 100,
         "avs": "ON",
         "on": {
             "filetype": "BINARY",

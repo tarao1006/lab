@@ -104,7 +104,7 @@
             "z": "ON"
         },
         "pin": {
-            "type": "NO",
+            "type": "YES",
             "yes": {
                 "pin": [
                     0
@@ -115,7 +115,7 @@
             }
         },
         "free_rigid": {
-            "type": "YES",
+            "type": "NO",
             "yes": {
                 "dof": [
                     {

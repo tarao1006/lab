@@ -46,44 +46,70 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |PIN            |      NO|
 |free_rigid     |      NO|
 
-## sim17
+## ~~sim17~~
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
- |param          |sim17|
- |:-:            |  :-:|
- |gravity        |  0.0|
- |shear_rate     |  0.1|
- |janus_slip_vel |  0.1|
- |janus_slip_mode|  0.5|
- |PIN            |  YES|
- |free_rigid     |  YES|
- |fix_cell       |   ON|
+|param          |sim17|
+|:-:            |  :-:|
+|gravity        |  0.0|
+|shear_rate     |  0.1|
+|janus_slip_vel |  0.1|
+|janus_slip_mode|  0.5|
+|PIN            |  YES|
+|free_rigid     |  YES|
+|fix_cell       |   ON|
 
-## sim18
+## ~~sim18~~
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
- |param          |sim17|
- |:-:            |  :-:|
- |gravity        |  0.0|
- |shear_rate     |  0.1|
- |janus_slip_vel |  0.1|
- |janus_slip_mode|  0.5|
- |PIN            |  YES|
- |free_rigid     |  YES|
- |fix_cell       |  OFF|
+|param          |sim18|
+|:-:            |  :-:|
+|gravity        |  0.0|
+|shear_rate     |  0.1|
+|janus_slip_vel |  0.1|
+|janus_slip_mode|  0.5|
+|PIN            |  YES|
+|free_rigid     |  YES|
+|fix_cell       |  OFF|
 
-## sim19
+## ~~sim19~~
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
- |param          |sim17|
- |:-:            |  :-:|
- |gravity        |  0.0|
- |shear_rate     |  0.1|
- |janus_slip_vel |  0.1|
- |janus_slip_mode|  0.5|
- |PIN            |   NO|
- |free_rigid     |  YES|
- |fix_cell       |   ON|
+|param          |sim19|
+|:-:            |  :-:|
+|gravity        |  0.0|
+|shear_rate     |  0.1|
+|janus_slip_vel |  0.1|
+|janus_slip_mode|  0.5|
+|PIN            |   NO|
+|free_rigid     |  YES|
+|fix_cell       |   ON|
+
+ ## sim20
+粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
+
+|param          |sim20|
+|:-:            |  :-:|
+|gravity        |  0.0|
+|shear_rate     |  0.1|
+|janus_slip_vel |  0.1|
+|janus_slip_mode|  0.5|
+|PIN            |  YES|
+|free_rigid     |   NO|
+|fix_cell       |   ON|
+
+ ## sim21
+粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
+
+|param          |sim21|
+|:-:            |  :-:|
+|gravity        |  0.0|
+|shear_rate     |  0.1|
+|janus_slip_vel |  0.1|
+|janus_slip_mode|  0.5|
+|PIN            |  YES|
+|free_rigid     |   NO|
+|fix_cell       |  OFF|
 
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
