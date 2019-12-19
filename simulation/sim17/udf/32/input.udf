@@ -151,7 +151,7 @@ object_type: {
 A_XI: 2.0
 A: 5.0
 gravity: {
-    1.0,
+    0.0,
     "-Y"
 }
 EPSILON: 0.0
@@ -251,7 +251,7 @@ switch: {
 }
 output: {
     100,
-    400,
+    100,
     "ON",
     {
         "output",

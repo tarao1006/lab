@@ -46,7 +46,7 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |PIN            |      NO|
 |free_rigid     |      NO|
 
-## ~~sim17~~
+## sim17
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
 |param          |sim17|
@@ -59,7 +59,7 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |free_rigid     |  YES|
 |fix_cell       |   ON|
 
-## ~~sim18~~
+## sim18
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
 |param          |sim18|
@@ -72,7 +72,7 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |free_rigid     |  YES|
 |fix_cell       |  OFF|
 
-## ~~sim19~~
+## sim19
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
 |param          |sim19|
