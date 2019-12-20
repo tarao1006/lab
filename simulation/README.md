@@ -101,3 +101,6 @@ HDF5のテストの為のシミュレーションです。
 |param      |shear_rate|janus_slip_vel|janus_slip_mode|
 |:-:        |:-:       |:-:           |:-:            |
 |sim15      |0.0       |0.001         |50             |
+
+# Caution
+多粒子にする場合、epsilonの値を1.0に設定することを忘れないように！
