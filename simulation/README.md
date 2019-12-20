@@ -6,77 +6,101 @@ qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q
 ```
 環境変数を用いて、コマンドライン引数をpythonに渡します。
 
-|値|型|概要|
-|:-:|:-:|:-:|
-|SIM_NUM|int (0~99)|ディレクトリの番号|
-|MAX_COUNT|int|一つのジョブで担当するシミュレーションの最大数|
-|IS_FIRST|bool|初回の実行かどうか。初回の場合、ディレクトリのリストを作成します。|
+|name       |type|optional|default|summary|
+|:-:        |:-: |:-:     |:-:    |:-:    |
+|PICKLE_FILE|str |optional|dirs.pickle|読み込むpickleファイルの名前|
+|MAX_COUNT  |int |optional|4|一つのループで実行するシミュレーションの数|
+|CMD        |str |optional|kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf|実行するコマンド|
 
-# Summary
-## sim00 ~ sim03, sim05 ~ sim14
-squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。グラフを比較した結果、free_rigidの値は結果に影響を与えないようです。また、sim11/sim12を比較した時、fix_cellの違いはシミュレーション結果に影響を与えませんでした。sim07/sim08とsim13/sim14は、分割数のみの違いです。
 
-|param          |sim00/sim01|sim02/sim03|sim05/sim06|sim07/sim08|sim09/sim10|sim11/sim12|sim13/sim14|
-|:-:            |        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|        :-:|
-|shrear_rate    |        0.0|        0.0|      0.001|        0.0|        0.0|        0.0|        0.0|
-|janus_slip_vel |   0.1/0.05|   0.1/0.05|        0.1|   0.1/0.05|   0.1/0.05|      0.001|   0.1/0.05|
-|janus_slip_mode|        0.5|        0.5|        0.5|        0.5|        0.5|         50|        0.5|
-|free_rigid     |        YES|        YES|        YES|         NO|         NO|         NO|         NO|
-|fix_cell       |        OFF|         ON|     OFF/ON|         ON|        OFF|     OFF/ON|         ON|
+# Main
+## sim04
+shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
 
-## sim15
-HDF5のテストの為のシミュレーションです。
+|param      |shrear_rate|janus_slip_vel |janus_slip_mode|
+|:-:        |:-:        |:-:            |:-:            |
+|sim04      |0.05 ~ 0.1 |0.0, 0.05 ~ 0.1|0.5            |
 
-|param          |sim15|
-|:-:            |  :-:|
-|shear_rate     |  0.0|
-|janus_slip_vel |0.001|
-|janus_slip_mode|   50|
-|fix_cell       |   ON|
+### sim04-00 ~ sim04-05
+
+|param   |shrear_rate|
+|:-:     |:-:        |
+|sim04-00|0.05       |
+|sim04-01|0.06       |
+|sim04-02|0.07       |
+|sim04-03|0.08       |
+|sim04-04|0.09       |
+|sim04-05|0.10       |
+
+## sim11, sim12
+squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。fix_cellの違いはシミュレーション結果に影響を与えませんでした。
+
+|param      |shrear_rate|janus_slip_vel|janus_slip_mode|fix_cell|
+|:-:        |:-:        |:-:           |:-:            |:-:     |
+|sim11      |0.0        |0.001         |50             |OFF     |
+|sim12      |0.0        |0.001         |50             |ON      |
 
 ## sim16 (dmo00)
 bottom heavyの影響を考えた計算が正しいかを確認するシミュレーションです。
 
-|param          |sim16-00|sim16-01|sim16-02|
-|:-:            |     :-:|     :-:|     :-:|
-|gravity        |     1.0|     5.0|    10.0|
-|shrear_rate    |     0.0|
-|janus_slip_vel |   0.001|
-|janus_slip_mode|      50|
-|PIN            |      NO|
-|free_rigid     |      NO|
+|param   |gravity|shrear_rate|janus_slip_vel|janus_slip_mode|free_rigid|pin|
+|:-:     |:-:    |:-:        |:-:           |:-:            |:-:       |:-:|
+|sim16-00|1.0    |0.0        |0.001         |50             |NO        |NO |
+|sim16-01|5.0    |0.0        |0.001         |50             |NO        |NO |
+|sim16-02|10.0   |0.0        |0.001         |50             |NO        |NO |
 
-## ~~sim17/sim18/sim19~~
+
+# Archived
+## sim00 ~ sim03, sim07 ~ sim10, sim13, sim14
+squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。グラフを比較した結果、free_rigidの値は結果に影響を与えないようです。また、sim11/sim12を比較した時、fix_cellの違いはシミュレーション結果に影響を与えませんでした。sim07/sim08とsim13/sim14は、分割数のみの違いです。
+
+|param      |shear_rate|janus_slip_vel|janus_slip_mode|free_rigid|fix_cell|pin   |
+|:-:        |:-:       |:-:           |:-:            |:-:       |:-:     |:-:   |
+|sim00/sim01|0.0       |0.1/0.05      |0.5            |YES       |OFF     |ON    |
+|sim02/sim03|0.0       |0.1/0.05      |0.5            |YES       |ON      |ON    |
+|sim09/sim10|0.0       |0.1/0.05      |0.5            |NO        |OFF     |ON    |
+|sim13/sim14|0.0       |0.1/0.05      |0.5            |NO        |ON      |ON    |
+
+## sim05, sim06
+shear_rateを0.001に設定しています。
+
+|param      |shear_rate|janus_slip_vel|janus_slip_mode|free_rigid|fix_cell|pin   |
+|:-:        |:-:       |:-:           |:-:            |:-:       |:-:     |:-:   |
+|sim05      |0.001     |0.1           |0.5            |YES       |OFF     |ON    |
+|sim06      |0.001     |0.1           |0.5            |YES       |ON      |ON    |
+
+## sim07, sim08
+分割が他のシミュレーションとは異なり、10度刻みです。
+
+|param      |shear_rate|janus_slip_vel|janus_slip_mode|free_rigid|fix_cell|pin   |
+|:-:        |:-:       |:-:           |:-:            |:-:       |:-:     |:-:   |
+|sim07      |0.0       |0.1           |0.5            |NO        |ON      |ON    |
+|sim08      |0.0       |0.05          |0.5            |NO        |ON      |ON    |
+
+
+## sim17 ~ sim25
 粒子の位置は固定し、回転方向だけを変化させられるかを確かめるシミュレーションです。
 
-sim22->free_rigidをYESに設定し、全てのパラメータをNOにしています。
-sim23->free_rigidをYESに設定し、全てのパラメータをNOにしています。
+YES' ->free_rigidをYESに設定し、全てのパラメータをNOにしています。
 
-|param          |sim17|sim18|sim19|sim20|sim21|sim22|sim23|sim24|sim25|
-|:-:            |  :-:|  :-:|  :-:|  :-:|  :-:|  :-:|  :-:|  :-:|  :-:|
-|gravity        |  0.0|  0.0|  0.0|  0.0|  0.0|  0.0|  0.0|  0.0|  0.0|
-|shear_rate     |  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|
-|janus_slip_vel |  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|  0.1|
-|janus_slip_mode|  0.5|  0.5|  0.5|  0.5|  0.5|  0.5|  0.5|  0.5|  0.5|
-|PIN            |  YES|  YES|   NO|  YES|  YES|  YES|  YES|   NO|   NO|
-|free_rigid     |  YES|  YES|  YES|   NO|   NO| YES'| YES'| YES'| YES'|
-|fix_cell       |   ON|  OFF|   ON|   ON|  OFF|  OFF|   ON|   ON|  OFF|
+|param|gravity|shear_rate|janus_slip_vel|janus_slip_mode|pin|free_rigid|fix_cell|
+|:-:  |:-:    |:-:       |:-:           |:-:            |:-:|:-:       |:-:     |
+|sim17|0.0    |0.1       |0.1           |0.5            |YES|YES       |ON      |
+|sim18|0.0    |0.1       |0.1           |0.5            |YES|YES       |OFF     |
+|sim19|0.0    |0.1       |0.1           |0.5            |NO |YES       |ON      |
+|sim20|0.0    |0.1       |0.1           |0.5            |YES|NO        |ON      |
+|sim21|0.0    |0.1       |0.1           |0.5            |YES|NO        |OFF     |
+|sim22|0.0    |0.1       |0.1           |0.5            |YES|YES'      |OFF     |
+|sim23|0.0    |0.1       |0.1           |0.5            |YES|YES'      |ON      |
+|sim24|0.0    |0.1       |0.1           |0.5            |NO |YES'      |ON      |
+|sim25|0.0    |0.1       |0.1           |0.5            |NO |YES'      |OFF     |
 
-## sim04
-shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
+## sim15
+HDF5のテストの為のシミュレーションです。
 
-|param          |          value|
-|:-:            |            :-:|
-|shrear_rate    |     0.05 ~ 0.1|
-|janus_slip_vel |0.0, 0.05 ~ 0.1|
-|janus_slip_mode|            0.5|
-|PIN            |             NO|
-
-### sim04-00 ~ sim04-05
-|param         |       sim04-00|       sim04-01|       sim04-02|       sim04-03|       sim04-04|       sim04-05|
-|:-:           |            :-:|            :-:|            :-:|            :-:|            :-:|            :-:|
-|shrear_rate   |           0.05|           0.06|           0.07|           0.08|           0.09|           0.10|
-
+|param      |shear_rate|janus_slip_vel|janus_slip_mode|
+|:-:        |:-:       |:-:           |:-:            |
+|sim15      |0.0       |0.001         |50             |
 
 # Caution
 多粒子にする場合、epsilonの値を1.0に設定することを忘れないように！
