@@ -104,13 +104,13 @@
             "z": "ON"
         },
         "pin": {
-            "type": "NO",
+            "type": "YES",
             "yes": {
                 "pin": [
                     0
                 ],
                 "pin_rot": [
-                    0
+
                 ]
             }
         },
