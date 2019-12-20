@@ -122,7 +122,7 @@ if __name__ == "__main__":
     max_count = os.getenv('MAX_COUNT')
 
     if pickle_file is None:
-        raise FileNotSelectedError("Pickle file is not selected.")
+        pickle_file = 'dirs.pickle'
 
     if cmd is None:
         cmd = '~/bin/kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf'
