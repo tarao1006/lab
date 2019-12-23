@@ -151,7 +151,7 @@ object_type: {
 A_XI: 2.0
 A: 5.0
 gravity: {
-    10.0,
+    1.0,
     "-Y"
 }
 EPSILON: 0.0
