@@ -1,0 +1,170 @@
+{
+    "constitutive_eq": {
+        "type": "Shear_Navier_Stokes",
+        "shear_navier_stokes": {
+            "dx": 1.0,
+            "rho": 1.0,
+            "eta": 1.0,
+            "kbt": 0.0,
+            "alpha_v": 1.0,
+            "alpha_o": 1.0,
+            "external_field": {
+                "type": "DC",
+                "dc": {
+                    "shear_rate": 0.0
+                }
+            }
+        }
+    },
+    "object_type": {
+        "type": "spherical_particle",
+        "spherical_particle": {
+            "particle_spec": [
+                {
+                    "particle_number": 1,
+                    "mass_ratio": 1.0,
+                    "surface_charge": 0.0,
+                    "janus_axis": "Y",
+                    "janus_propulsion": "SQUIRMER",
+                    "janus_force": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "janus_torque": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "janus_slip_vel": 0.001,
+                    "janus_slip_mode": 50.0,
+                    "janus_rotlet_c1": 0.0,
+                    "janus_rotlet_dipolr_c2": 0.0
+                }
+            ]
+        }
+    },
+    "a_xi": 2.0,
+    "a": 5.0,
+    "gravity": {
+        "g": 0.0,
+        "g_direction": "-Y"
+    },
+    "lj_powers": "36:18",
+    "mesh": {
+        "npx": 6,
+        "npy": 7,
+        "npz": 6
+    },
+    "time_increment": {
+        "type": "auto",
+        "auto": {
+            "factor": 1.0
+        }
+    },
+    "switch": {
+        "rotation": "ON",
+        "lj_truncate": "ON",
+        "init_distribution": {
+            "type": "user_specify",
+            "user_specify": {
+                "particles": [
+                    {
+                        "r":{
+                            "x": 32.0,
+                            "y": 64.0,
+                            "z": 32.0
+                        },
+                        "v":{
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "q":{
+                            "q0": 0.9238795325112867,
+                            "q1": 0.0,
+                            "q2": 0.0,
+                            "q3": 0.3826834323650898
+                        },
+                        "omega":{
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        }
+                    }
+                ]
+            }
+        },
+        "init_orientation": "user_specify",
+        "slip_tol": 0.01,
+        "slip_iter": 4,
+        "fix_cell": {
+            "x": "ON",
+            "y": "ON",
+            "z": "ON"
+        },
+        "pin": {
+            "type": "NO",
+            "yes": {
+                "pin": [
+                    0
+                ],
+                "pin_rot": [
+                    0
+                ]
+            }
+        },
+        "free_rigid": {
+            "type": "NO",
+            "yes": {
+                "dof": [
+                    {
+                        "spec_id": 0,
+                        "vel": {
+                            "x": "NO",
+                            "y": "NO",
+                            "z": "NO"
+                        },
+                        "omega": {
+                            "x": "NO",
+                            "y": "NO",
+                            "z": "YES"
+                        }
+                    }
+                ]
+            }
+        },
+        "ns_solver": {
+            "obl_int": "linear"
+        }
+    },
+    "output": {
+        "gts": 100,
+        "num_snap": 100,
+        "avs": "ON",
+        "on": {
+            "filetype": "BINARY",
+            "extended": {
+                "print_field": {
+                    "yes": {
+                        "slab_x": {
+                            "start": 0,
+                            "count": 8,
+                            "stride": 4
+                        },
+                        "slab_y": {
+                            "start": 0,
+                            "count": 8,
+                            "stride": 4
+                        },
+                        "slab_z": {
+                            "start": 0,
+                            "count": 4,
+                            "stride": 8
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
