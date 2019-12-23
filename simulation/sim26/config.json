@@ -1,19 +1,13 @@
 {
     "constitutive_eq": {
-        "type": "Shear_Navier_Stokes",
-        "shear_navier_stokes": {
+        "type": "Navier_Stokes",
+        "navier_stokes": {
             "dx": 1.0,
             "rho": 1.0,
             "eta": 1.0,
             "kbt": 0.0,
             "alpha_v": 1.0,
-            "alpha_o": 1.0,
-            "external_field": {
-                "type": "DC",
-                "dc": {
-                    "shear_rate": 0.0
-                }
-            }
+            "alpha_o": 1.0
         }
     },
     "object_type": {
@@ -50,10 +44,11 @@
         "g": 0.0,
         "g_direction": "-Y"
     },
+    "epsilon": 1.0,
     "lj_powers": "36:18",
     "mesh": {
         "npx": 6,
-        "npy": 7,
+        "npy": 6,
         "npz": 6
     },
     "time_increment": {
@@ -81,7 +76,7 @@
                             "z": 0.0
                         },
                         "q":{
-                            "q0": 0.0,
+                            "q0": 1.0,
                             "q1": 0.0,
                             "q2": 0.0,
                             "q3": 0.0
@@ -115,7 +110,7 @@
             }
         },
         "free_rigid": {
-            "type": "NO",
+            "type": "YES",
             "yes": {
                 "dof": [
                     {
