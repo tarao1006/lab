@@ -159,6 +159,7 @@ output.udf
 output
 output.txt
 output.csv
+confirmation.txt
 *.ipynb
 init.py
 particelshow.py
