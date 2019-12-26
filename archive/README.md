@@ -13,7 +13,7 @@ qsub -N job -o std.out -e std.err -v PICKLE_FILE="dirs.pickle" -v MAX_COUNT=8 -q
 |CMD        |str |optional|kapsel -Iinput.udf -Ooutput.udf -Ddefine.udf -Rrestart.udf|実行するコマンド|
 
 
-# Main
+# Archive
 ## sim04
 shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の回転がどのような値になるのかを調べるシミュレーションです。
 
@@ -50,7 +50,6 @@ bottom heavyの影響を考えた計算が正しいかを確認するシミュ�
 |sim16-02|10.0   |0.0        |0.001         |50             |NO        |NO |
 
 
-# Archived
 ## sim00 ~ sim03, sim07 ~ sim10, sim13, sim14
 squirmerの進行方向の違いによるせん断応力の変化を調べるシミュレーションです。グラフを比較した結果、free_rigidの値は結果に影響を与えないようです。また、sim11/sim12を比較した時、fix_cellの違いはシミュレーション結果に影響を与えませんでした。sim07/sim08とsim13/sim14は、分割数のみの違いです。
 
