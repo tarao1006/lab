@@ -92,8 +92,6 @@ if __name__ == "__main__":
 
     if sub_sim_num is not None:
         sub_sim_num_str = f'{sub_sim_num:0=2}'
-
-    if sub_sim_num_str:
         simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}/sim{sim_num_str}-{sub_sim_num_str}')
     else:
         simulation_dirs = scan_kapsel_simulation_dirs(path_dir=f'./sim{sim_num_str}')
