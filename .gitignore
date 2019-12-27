@@ -167,3 +167,4 @@ particelshow_with_avs.py
 *.err
 *.out
 dirs.pickle
+core*
