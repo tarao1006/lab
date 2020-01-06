@@ -161,6 +161,7 @@ output.txt
 output.csv
 confirmation.txt
 *.ipynb
+*.mp4
 init.py
 particelshow.py
 particelshow_with_avs.py
