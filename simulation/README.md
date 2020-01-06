@@ -16,4 +16,7 @@ kapselにbottom heavyの性質を付加できたか検証する。
 kapselにbottom heavyの性質を付加できたか検証する。
 
 # sim05
-kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。
+kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。粒子の位置は固定している。
+
+# sim06
+kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。粒子の位置は固定していない。
