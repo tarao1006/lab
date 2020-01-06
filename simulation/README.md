@@ -12,7 +12,7 @@ shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の�
 # sim03
 kapselにbottom heavyの性質を付加できたか検証する。
 
-# sim04
+# sim04 (削除予定)
 kapselにbottom heavyの性質を付加できたか検証する。
 
 # sim05 (削除予定)
