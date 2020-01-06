@@ -10,13 +10,10 @@ shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の�
 粒子の進行方向とせん断応力の関係を調べる。
 
 # sim03
-kapselにbottom heavyの性質を付加できたか検証する。
-
-# sim04 (削除予定)
-kapselにbottom heavyの性質を付加できたか検証する。
-
-# sim05
 kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。粒子の位置は固定している。
 
-# sim06
+# sim04
 kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。粒子の位置は固定していない。
+
+# sim05
+kapselにbottom heavyの性質を付加できたか検証する。粒子の最初の向きを変化させ、どの角度であっても、結果的に鉛直上向きになるかを調べる。
