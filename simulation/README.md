@@ -15,5 +15,5 @@ kapselにbottom heavyの性質を付加できたか検証する。
 # sim04 (削除予定)
 kapselにbottom heavyの性質を付加できたか検証する。
 
-# sim05 (削除予定)
-kapselにbottom heavyの性質を付加できたか検証する。トルクの計算には、新たな項を追加していない。
+# sim05
+kapselにbottom heavyの性質を付加できたか検証する。gravityの値を変更し、粒子が鉛直上向きに動き出すまでのstep数の変化を調べる。
