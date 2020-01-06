@@ -2,7 +2,6 @@
 #$ -S /bin/sh
 #$ -cwd
 #$ -pe openmp 4
-#$ -M taiga4562@gmail.com
 #$ -m be
 #$ -v LD_LIBRARY_PATH=/opt/hdf5/1.10.5/lib:/opt/fftw/3.3.8/lib
 #$ -v KMP_AFFINITY=verbose,compact,1
