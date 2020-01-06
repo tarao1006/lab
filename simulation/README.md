@@ -9,5 +9,8 @@ shear_rateの値とjanus_slip_velの値を変化させた時に、z軸方向の�
 # sim02
 粒子の進行方向とせん断応力の関係を調べる。
 
-# sim03, sim04
+# sim03
+kapselにbottom heavyの性質を付加できたか検証する。トルクの計算には、新たな項を追加していない。
+
+# sim04
 kapselにbottom heavyの性質を付加できたか検証する。
