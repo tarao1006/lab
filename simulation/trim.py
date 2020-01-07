@@ -41,6 +41,6 @@ if __name__ == "__main__":
 
     prefix = f'/Users/taiga/Projects/lab/simluation/sim{sim_num:0=2.0f}/ImageCapture/output.udf/graphic'
     if sub_sim_num is not None:
-        prefix = f'/Users/taiga/Projects/lab/simulation/sim{sim_num:0=2.0f}/udf/{sub_sim_num:0=3.0f}/ImageCapture/output.udf/graphic'
+        prefix = f'/Users/taiga/Projects/lab/simulation/sim{sim_num:0=2.0f}/udf/{sub_sim_num:0=2.0f}/ImageCapture/output.udf/graphic'
     triming_img(prefix)
     subprocess.run(['ffmpeg', '-f', 'image2', '-r', '15', '-i', f'{prefix}/_%03d.jpg', '-r', '15', '-an', '-vcodec', 'libx264', '-pix_fmt', 'yuv420p', f'{sim_num:0=2.0f}_{sub_sim_num:0=3.0f}_video.mp4'])
