@@ -157,11 +157,13 @@ output.udf
 
 # addition
 output
+fig
 output.txt
 output.csv
 confirmation.txt
 *.ipynb
 *.mp4
+*.jpg
 init.py
 particelshow.py
 particelshow_with_avs.py
