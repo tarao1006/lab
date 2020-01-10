@@ -38,14 +38,18 @@ kapselにbottom heavyの性質を付加できたか検証する。粒子の最�
 |g  |0.05 |0.03|
 
 # sim05
-せん断によるトルクとbottom heavinessによるトルクの関係を調べる。
+せん断によるトルクとbottom heavinessによるトルクの関係を調べる。shear_rateは0.01~0.17の範囲。
 
 |   |00    |01  |02  |03  |04  |
 |:-:|:-:   |:-: |:-: |:-: |:-: |
 |g  |0.0035|0.03|0.05|0.08|0.30|
 
-# sim06 (will be deleted)
-せん断によるトルクとbottom heavinessによるトルクの関係を調べる。shrar_rate = 0.06 ~ 0.08
+# sim06
+せん断によるトルクとbottom heavinessによるトルクの関係を調べる。sim05とは異なり、粒子の位置をpinで固定している。
+
+|   |00    |
+|:-:|:-:   |
+|g  |0.0035|
 
 # sim10 (will be deleted)
 せん断によるトルクとbottom heavinessによるトルクの関係を調べる。
