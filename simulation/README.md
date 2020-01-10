@@ -34,3 +34,10 @@ kapselにbottom heavyの性質を付加できたか検証する。粒子の最�
 
 # sim05, sim06
 せん断によるトルクとbottom heavinessによるトルクの関係を調べる。
+
+# sim07, sim08
+せん断によるトルクとbottom heavinessによるトルクの関係を調べる。
+
+|   |07  |08 |
+|:-:|:-: |:-:|
+|g  |0.03|0.05
