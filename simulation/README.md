@@ -47,16 +47,14 @@ kapselにbottom heavyの性質を付加できたか検証する。粒子の最�
 # sim06
 せん断によるトルクとbottom heavinessによるトルクの関係を調べる。sim05とは異なり、粒子の位置をpinで固定している。
 
-|   |00    |
-|:-:|:-:   |
-|g  |0.0035|
-
-# sim10 (will be deleted)
-せん断によるトルクとbottom heavinessによるトルクの関係を調べる。
-
 |   |00  |
 |:-:|:-: |
 |g  |0.30|
 
-# sim99
-kapselの拡張確認用
+# sim07
+閾値を求めるためにshear_rateの範囲をせばめている。
+
+|          |00         |
+|:-:       |:-:        |
+|g         |0.30       |
+|shear_rate|0.08 ~ 0.10|
