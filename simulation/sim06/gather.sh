@@ -7,5 +7,5 @@ function ebicp() {
 for i in `seq 0 9`
 do 
         j=`printf %02d $i`
-        ebicp sim07/sim07-00/udf/$j/output.udf
+        ebicp sim06/sim06-00/udf/$j/output.udf
 done
