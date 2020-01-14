@@ -163,7 +163,6 @@ output.csv
 *.ipynb
 *.mp4
 *.jpg
-init.py
 particelshow.py
 particelshow_with_avs.py
 *.err
