@@ -160,8 +160,6 @@ output
 fig
 output.txt
 output.csv
-confirmation.txt
-torque_bh.txt
 *.ipynb
 *.mp4
 *.jpg
@@ -172,3 +170,4 @@ particelshow_with_avs.py
 *.out
 dirs.pickle
 core*
+*.txt
