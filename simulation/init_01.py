@@ -14,7 +14,7 @@ udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q1
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q2'] = q.q2
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q3'] = q.q3
 
-_shearrates = np.linspace(0.04, 0.06, 10)
+_shearrates = np.linspace(0.01, 0.1, 10)
 
 if not Path('udf').exists():
     os.mkdir('udf')
