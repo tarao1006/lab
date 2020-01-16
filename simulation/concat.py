@@ -9,6 +9,6 @@ a.update(b)
 a.update(c)
 
 aa = sorted(a.items(), key=lambda x:x[0])
-
+print(aa)
 for i, a in enumerate(aa):
-    subprocess.check_output(f'cp -r /Users/taiga/Projects/lab/simulation/{a[1]} /Users/taiga/Projects/lab/simulation/sim12/{i:0=3.0f}', shell=True)
+    subprocess.check_output(f'cp -r {a[1]} sim11/{i:0=3.0f}', shell=True)
