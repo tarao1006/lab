@@ -47,7 +47,7 @@
     "a_xi": 2.0,
     "a": 5.0,
     "gravity": {
-        "g": 0.0,
+        "g": 0.06,
         "g_direction": "-Y"
     },
     "epsilon": 1.0,
