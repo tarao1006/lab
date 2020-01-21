@@ -5,6 +5,9 @@ test04: * 2.0の外側にtorque_bhの項を追加している。
 
 test05: * 2.0の内側にtorque_bhの項を追加している。
 
+# sim01
+gammadotとB1を変化させたさいのomega_zの変化を調べる。
+
 # sim04
 kapselにbottom heavyの性質を付加できたか検証する。粒子の最初の向きを変化させ、どの角度であっても、結果的に鉛直上向きになるかを調べる。
 
