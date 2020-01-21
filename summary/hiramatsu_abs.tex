@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[twocolumns,10pt,a4j]{jarticle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}% Include figure files
+%\usepackage{txfonts}
+\usepackage{setspace}
+\usepackage{bm}% bold math
+\usepackage{here}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\usepackage[top=14truemm,bottom=25truemm,left=25truemm,right=20truemm]{geometry}%余白
+\usepackage{layout}
+\usepackage{wrapfig}
+\renewcommand{\abstractname}{} 
+\renewcommand{\figurename}{\small{Fig.}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\baselinestretch}{0.83}
+\usepackage{indentfirst}
+\usepackage{otf}
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter%% プリアンブルで定義する場合は必須
+\patchcmd{\maketitle}{\@fnsymbol}{\@alph}{}{}  % Footnote numbers from symbols to small letters
+\long\def\@makecaption#1#2{% \@makecaption を再定義します
+  \vskip\abovecaptionskip
+  \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+  \else\sbox\@tempboxa{#1~ #2}% ここの : を ~ に変更する
+  \fi
+  \ifdim \wd\@tempboxa >\hsize% 
+  \iftdir #1\hskip1zw#2\relax\par
+  \else #1~ #2\relax\par\fi% ここの : を ~ に変更する
+  \else
+  \global \@minipagefalse
+  \hbox to\hsize{\hfil\box\@tempboxa\hfil}% センタリング
+  %   \hbox to\hsize{\box\@tempboxa\hfil}%      左詰め
+  %   \hbox to\hsize{\hfil\box\@tempboxa}%      右詰め
+  \fi
+  \vskip\belowcaptionskip}
+
+\DeclareRobustCommand\cite{\unskip
+  \@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+  \def\@cite#1#2{$^{[\hbox{\scriptsize{#1\if@tempswa , #2\fi}]}}$}
+  \def\@biblabel#1{[#1]}
+  \makeatother%% プリアンブルで定義する場合は必須
+  \setlength{\columnsep}{7  truemm}
+  \setlength{\linewidth}{81 truemm}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \title{\Large ひも状ミセル溶液系レオロジー予測のためのミクロモデル構築\vspace{-3truemm}}
+  \author{\large 化学プロセス工学コース　移動現象論分野　　平松 崇文\vspace{-10zh}}
+  \date{}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  \begin{document}
+
+  \twocolumn[
+    \maketitle\thispagestyle{empty}
+      \vspace{-10truemm}
+      \begin{quote}
+      %\begin{abstract}
+        \normalsize
+	カチオン性界面活性剤は, 塩濃度の高い溶液中でひも状のミセルを形成し, からみあうことで複雑な粘弾挙動を示す. このようなひも状ミセルは, 高分子鎖と同様に扱えることから, 本研究では, 高分子溶融体の物理的な絡み合い挙動を扱う為に用いられてきたSlip-linkモデルに分裂, 結合の機構を組み合わせることでひも状ミセルのミクロな機構を表現し, その緩和現象を考察した. 
+      %\end{abstract}
+      \vspace{4truemm}
+      \end{quote}    
+      ]
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+      \noindent		
+      {\bf \large 1. 緒言}
+      \par ひも状ミセル溶液系は, そのミクロな絡み合い構造に加えて, ミセルの分裂と結合の機構により, 複雑な粘弾性を示すことが知られている\cite{1}. そのため, ひも状ミセルの流動挙動を正確に予測するためには, そのミクロなモデルを構築することが不可欠となる. 本研究では, 絡み合いを持つ高分子流体のミクロモデルであるSlip-linkモデルをひも状ミセルに援用し, ひも状ミセルに特徴的な分裂・結合の機構を加えて拡張することで, その微視的なレオロジー特性を明らかにすることを目的とした. 
+
+      \vspace{0.5truemm}
+      \noindent
+      {\bf \large 2. 計算手法}
+      \par
+      ひも状ミセルは平衡状態で, 単位時間, ミセルの長軸に沿った方向の単位長さあたり, 等しい確率で分裂すると考えられるため, 分裂する確率はミセルの長さに比例すると仮定した. 結合の確率については, 両者のひも状ミセルの濃度の積に比例するとした.\cite{1} 
+      \par
+      以上の分裂・結合の機構を組み込んだSlip-linkモデルを用いて応力を算出する. Slip-linkモデルは，からみあう高分子のダイナミクスを表現するためのモデルであり, 各高分子鎖が管状の領域を運動するという理論に基づいている(Reptation運動).高分子鎖中の絡み合い点(Slip-link)を結んだ線をPrimitive pathと呼び，その時間発展の計算手順を以下に示す\cite{2}.
+      %
+      \par 1. 印加する流れ場によるアフィン変形
+      %\vspace{-0.5truemm}
+      \par 2. 式(\ref{TimeEvolution_L})に基づくひも状ミセル長さの緩和
+      %\vspace{-0.5truemm}
+      \par 3. Primitive Pathに沿った鎖のReptation運動
+      % \vspace{-0.5truemm}
+      \par 4. 絡み合い点(Slip-link)の生成・消失
+      %\vspace{-0.5truemm}
+      \par 5. ひも状ミセルの分裂と結合
+      %\vspace{-0.5truemm}
+      \par 6. 応力の算出\\
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+      \vspace{-10truemm}
+
+      \begin{equation}
+        \frac{dL}{dt}=-\frac{1}{\tau_{\rm R}}\left( L\left(t\right)-L_{\rm eq}\right)
+	  +\left(\frac{dL}{dt}\right)_{\rm affine}+g\left(t\right)
+        \label{TimeEvolution_L}
+      \end{equation}
+
+      \vspace{-2.0truemm}
+
+      %\begin{equation}
+      %  L_{\rm eq}=b M_{\rm seg}
+      %  \label{Leq}
+      %\end{equation}
+      %\begin{equation}
+      %  \Delta x=\sqrt{2D_{\rm c}\Delta t}
+      %  \label{Reptation}
+      %\end{equation}
+      %
+      %\vspace{-3.0truemm}
+
+      %\begin{equation}
+      %  \tau_{\rm R}=Z^2_{\rm eq}\tau_{\rm e}
+      %  \quad , \quad
+      %  \tau_{\rm b}=N_{\rm p}\tau_{\rm e}/n_{\rm b}
+      %  \label{tau}
+      %\end{equation}
+
+      %\vspace{-3truemm}
+      %
+      %\begin{equation}
+      %  \sigma_{\alpha\beta}=\sigma_{\rm e}\left\langle \frac{r_{\alpha}r_{\beta}}{a|{\bm r}|}\right\rangle
+      %  \quad , \quad
+      %  \alpha,\beta \in \{x, y, z \}
+      %  \label{TimeEvolution_sigma}
+      %\end{equation}                                                                  
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+      \noindent
+      %\par
+      $L$はひも状ミセル(Primitive Path)の全長, $\tau_{\rm R}$, $\tau_{\rm b}=N_{\rm p}\tau_{\rm e}/n_{\rm b}$はそれぞれRouse緩和時間, 分裂・結合の特徴時間であり, $g\left(t\right)$は熱揺動力による$L$の揺らぎを表す. $N_{\rm p}$は系に含まれるミセル本数, $n_{\rm b}$は単位時間$\tau_{\rm e}$に発生するの分裂と結合の回数を表す. 平衡時のPrimitive Path長さは, ミセルを構成するセグメントの長さ$b$とミセル中のセグメント数$M_{\rm seg}$を用いて$L_{\rm eq}=bM_{\rm seg}$で表される. また, 応力は, 隣接するSlip-link間に働く張力から算出した. \
+      
+      \vspace{-4.0truemm}
+      \begin{figure}[H]
+	\hspace{4truemm}
+	  \centering \includegraphics[width=80mm]{./Fig/slip.pdf}\vspace{-5truemm}
+	\caption{ひも状ミセル分裂, 結合の模式図}
+        \label{Slip-link}
+      \end{figure}
+      \vspace{-4truemm}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+      \noindent
+      {\bf \large 3. 結果と考察}
+      \par
+      平衡時の絡み合い数が10のひも状ミセル, 5000本からなる系に対して, $\tau_{\rm b}=50, 500, 5000$の3通りの場合で計算を行った結果を以下に示す. 平衡時におけるひも状ミセルの長さの分布Fig. \ref{Dist_sigma}(a)より, 全ての$\tau_{\rm b}$において, Catesの理論\cite{1}に従う指数型の分布が見られた. また, Fig. \ref{Dist_sigma}(b)に緩和剛性率の時間変化を示す. $\tau_{\rm b}$が小さくなると, 分裂により応力緩和が促進されることがわかる. Fig.\ref{Storage_loss}(a), (b)に, それぞれ貯蔵弾性率, 損失弾性率を示す. 分裂と結合の頻度が高くなると, 分裂による応力緩和の影響が大きくなり, 点線で示すように, ひも状ミセルの系に特徴的な単一緩和挙動を示すようになった. 
+
+      \vspace{-4truemm}
+      \begin{figure}[H]
+	\hspace{-2truemm}
+	  \includegraphics[height=35mm]{./Fig/Dist_sigma.eps}\vspace{-6truemm}
+	  \caption{(a) $N$ vs. $L$, (b) $G$ vs. $t/\tau_{\rm e}$}
+        \label{Dist_sigma}
+      \end{figure}
+
+      \vspace{-7.5truemm}
+      \begin{figure}[H]
+	\hspace{-3truemm}
+	  \includegraphics[height=35mm]{./Fig/Storage_loss_abs.eps}\vspace{-6truemm}
+	\caption{(a) $G'$ vs. $\omega\tau_{\rm e}$, (b) $G''$ vs. $\omega\tau_{\rm e}$}
+        \label{Storage_loss}
+      \end{figure}
+      \vspace{-3.5truemm}
+
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \noindent
+      {\bf \large 4. 結言および今後の展望}
+      \par 
+      分裂と結合の機構をSlip-linkモデルに組み込むことで, ひも状ミセルのミクロモデルを構築し, その粘弾性を再現することができた. 今後は, 実験の結果と比較しその妥当性を検証した上で, マルチスケールシミュレーションへ応用し\cite{3}, マクロな流動現象を予測することが課題である.  
+      \vspace{-7.5truemm}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \renewcommand{\refname}{\large 参考文献\vspace{-3truemm}}
+      \begin{thebibliography}{9}
+      %
+      \bibitem{1}
+        M. E. Cates, \textit{Macromolecules.}, \textbf{20}, 2289-2296 (1987). \\
+      %
+      \vspace{-7truemm}
+      %
+      \bibitem{2}
+        M. Doi and J. Takimoto, \textit{Phil.} \textit{Trans.} \textit{R}. \textit{Soc.} \textit{Lond. A}, \textbf{361}, 641-652 (2003)．\\
+      %
+      \vspace{-7truemm}
+      %
+      \bibitem{3}
+        T. Sato, K. Harada, T. Taniguchi,  \textit{Macromolecules.}, \textbf{52}, 547-564 (2019). \\
+      %
+      \end{thebibliography}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \vspace{-7truemm}
+      \centering
+      \underline{指導教員名\hspace{10truemm} 山本　量一 \hspace{20truemm} 印}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \end{document}
