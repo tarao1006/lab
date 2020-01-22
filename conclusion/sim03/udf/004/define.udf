@@ -274,7 +274,8 @@ class outParticle: {
     f_r: Vector3d,
     torque_r: Vector3d,
     f_slip: Vector3d,
-    torque_slip: Vector3d
+    torque_slip: Vector3d,
+    torque_bh: Vector3d
 }
 E: float "total kinetic energy of the system"
 t: float "total time"
@@ -304,6 +305,8 @@ class sParticle: {
     torque_slip_previous: Vector3d,
     torque_r: Vector3d,
     torque_r_previous: Vector3d,
+    torque_bh: Vector3d,
+    torque_bh_previous: Vector3d,
     q: Quaternion,
     q_old: Quaternion
 }

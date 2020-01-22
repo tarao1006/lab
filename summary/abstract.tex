@@ -75,7 +75,7 @@
   \textbf{\large 1．緒言}
   \par
 マイクロスイマーの拘束空間内における集団的な動的挙動を理解することは，バイオフィルムの形成の説明や標的薬物送達システムの設計などの工学的な用途に有用である．
-本研究では，直接数値計算を用いて，せん断場における，重心が球の中心からずれたbottom heavyな性質を持つマイクロスイマーの挙動を調べることを目的とした．
+本研究では，直接数値計算を用いて，せん断場における，重心が中心からずれたbottom heavyな性質を持つマイクロスイマーの挙動を調べることを目的とした．
 
   %% end 1．
   %% start 2．計算手法
@@ -84,7 +84,7 @@
   \textbf{\large 2．計算手法}
   \par
 マイクロスイマーのモデルとして，squirmerモデルを採用した．
-このモデルでは，球状粒子で異なる泳動形態を表現するために，粒子表面において粒子と流体の速度差が式\eqref{boundary_I}で表される境界条件を用いる\cite{1}．
+このモデルでは，粒子表面において粒子と流体の速度差が式\eqref{boundary_I}で表される境界条件を用いる\cite{1}．
 
   \vspace{-3truemm}
     \begin{equation}
@@ -95,7 +95,7 @@
 
   \noindent
 ここで，$\boldsymbol{u}^s$はスイマー表面の流れ場，$B_1$はフーリエ級数の係数第1項，$\beta$はスイマーのタイプを与える定数，
-$\theta$は動径ベクトルと推進方向との間の極角，$\hat{\boldsymbol{\theta}}$は単位極角ベクトルである．粒子の進行速度$U$は，$B_1$を用いて，$U = 3/2B_1$で与えられる．
+$\theta$は動径ベクトルと推進方向との間の極角，$\hat{\boldsymbol{\theta}}$は単位極角ベクトルである．
   % \vspace{-3truemm}
   % \begin{figure}[H]
   %   \centering
@@ -127,7 +127,7 @@ SPMは流体力学を用いた固体/流体2相ダイナミクス問題の効率
   \noindent
 ここでスイマー$i$について，$\boldsymbol{R}_i$は位置，$\boldsymbol{V}_i$は速度，$\boldsymbol{\Omega}_i$は角速度を示す．
 $M_i$はスイマーの質量，$\boldsymbol{F}_i^\mathrm{H}$は流体から受ける力，
-$\boldsymbol{I}_i$は慣性モーメント，$\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルク，$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によるトルクである．
+$\boldsymbol{I}_i$は慣性モーメント，$\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルク，$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるトルクである．
 
   \par
 2．Navier-Stokes方程式\\
@@ -167,7 +167,7 @@ $\boldsymbol{f}^\mathrm{shear}$は式\eqref{zigzag_flow}のように表される
   \noindent
   {\bf \large 3．結果と考察}
   \par
-直径$4\Delta$，$\alpha\pm0.5$のsquirmerについて，体積分率を0.13として$64\Delta×\!\!160\Delta×\!\!64\Delta$の矩形システムでシミュレーションを行った．
+直径$5\Delta$のsquirmerについて，$64\Delta \times 128\Delta \times 64\Delta$の矩形システムでシミュレーションを行った．
 このシステムは$x$方向と$z$方向には周期的であるが，$y$方向には$y =1\Delta$と$y=159\Delta$の位置に配置された球状粒子の平行壁に挟まれている(Fig.\ref{Confinement_model})．
 ここで，$\Delta$は格子間隔と単位長さである．また，Puller型/Pusher型2成分の組成比を変えて計算を行った場合の局所密度の時間発展をFig．\ref{wave}に示す．
 

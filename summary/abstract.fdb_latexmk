@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1579590814 "abstract.dvi" "abstract.pdf" "abstract" 1579590815
-  "abstract.dvi" 1579590814 10132 b56af657477508ab9c2bc7621b1adf80 "latex"
+["dvipdf"] 1579593033 "abstract.dvi" "abstract.pdf" "abstract" 1579593034
+  "abstract.dvi" 1579593033 9772 a7bd90eb47c21f258a5d26ddee6ef528 "latex"
   (generated)
   "abstract.pdf"
-["latex"] 1579590814 "abstract.tex" "abstract.dvi" "abstract" 1579590815
+["latex"] 1579593033 "abstract.tex" "abstract.dvi" "abstract" 1579593034
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -81,9 +81,9 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1557092114 35484 cb1661360667bf4db662a8895053b554 ""
   "/usr/local/texlive/2019/texmf-var/web2c/eptex/platex.fmt" 1569818021 4524395 20c5842170f027ea07993172fef63065 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "abstract.aux" 1579590814 190 ac46d95ac391ca6fce022103f93c0ff1 "latex"
-  "abstract.tex" 1579590814 11029 3d7ce3a7e9152d57dc51f9865ab65c1b ""
+  "abstract.aux" 1579593033 190 ac46d95ac391ca6fce022103f93c0ff1 "latex"
+  "abstract.tex" 1579593033 10848 5dc029e884ed97d7e45705fae46cae44 ""
   (generated)
   "abstract.aux"
-  "abstract.log"
   "abstract.dvi"
+  "abstract.log"
