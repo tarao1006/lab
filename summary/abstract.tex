@@ -88,13 +88,13 @@
 
   \vspace{-3truemm}
     \begin{equation}
-      \boldsymbol{u}^s = B_1 \left( \sin{\theta} + \frac{\beta}{2} \sin{2\theta} \right) \hat{\boldsymbol{\theta}}
+      \boldsymbol{u}^s = B_1 \left( \sin{\theta} + \frac{\alpha}{2} \sin{2\theta} \right) \hat{\boldsymbol{\theta}}
       \label{boundary_I}
     \end{equation}
   \vspace{-4truemm}
 
   \noindent
-ここで，$\boldsymbol{u}^s$はスイマー表面の流れ場，$B_1$はフーリエ級数の係数第1項，$\beta$はスイマーのタイプを与える定数，
+ここで，$\boldsymbol{u}^s$はスイマー表面の流れ場，$B_1$はフーリエ級数の係数第1項，$\alpha$はスイマーのタイプを与える定数，
 $\theta$は動径ベクトルと推進方向との間の極角，$\hat{\boldsymbol{\theta}}$は単位極角ベクトルである．
   % \vspace{-3truemm}
   % \begin{figure}[H]
@@ -108,34 +108,16 @@ $\theta$は動径ベクトルと推進方向との間の極角，$\hat{\boldsymb
 
 直接数値計算は，squirmerモデルをSPMに組み込んで行った．
 SPMは流体力学を用いた固体/流体2相ダイナミクス問題の効率的な計算方法である\cite{2}．
-スイマーの時間発展はNewton-Euler方程式\eqref{Newton_Euler}で与え，流体の支配方程式として非圧縮性流体におけるNavier-Stokes方程式\eqref{Navier_Stokes}を用いた．
+流体の支配方程式として非圧縮性流体におけるNavier-Stokes方程式\eqref{Navier_Stokes}を用い，
+スイマーの時間発展はNewton-Euler方程式\eqref{Newton_Euler}で与えた．
 
-  \par
-1．Newton-Euler方程式\\
-  \vspace{-6truemm}
-  \begin{equation}
-    \begin{split}
-      M_i \dot{\boldsymbol{V}_i} &= \boldsymbol{F}_i^\mathrm{H}，\quad
-      \dot{\boldsymbol{R}}_i = \boldsymbol{V}_i, \\
-      \boldsymbol{I}_i \cdot \dot{\boldsymbol{\Omega}_i} &= \boldsymbol{N}_i^\mathrm{H} + \boldsymbol{N}_i^\mathrm{b.h.}
-      % \boldsymbol{N}_i^\mathrm{b.h.} &= \frac{4}{3} \pi a^3 \rho h \boldsymbol{e} \times \boldsymbol{g}
-    \end{split}
-    \label{Newton_Euler}
-  \end{equation}
-  \vspace{-4truemm}
-
-  \noindent
-ここでスイマー$i$について，$\boldsymbol{R}_i$は位置，$\boldsymbol{V}_i$は速度，$\boldsymbol{\Omega}_i$は角速度を示す．
-$M_i$はスイマーの質量，$\boldsymbol{F}_i^\mathrm{H}$は流体から受ける力，
-$\boldsymbol{I}_i$は慣性モーメント，$\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルク，$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるトルクである．
-
-  \par
-2．Navier-Stokes方程式\\
+\par
+1．Navier-Stokes方程式\\
   \vspace{-6truemm}
   \begin{equation}
     \begin{split}
       \boldsymbol{\nabla}\cdot\boldsymbol{u} &= 0 \\
-      \rho_\mathrm{f} \left(\partial_\mathrm{t} \boldsymbol{v} + \boldsymbol{v} \cdot \boldsymbol{\nabla v} \right) &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} + \rho_\mathrm{f} \phi \boldsymbol{f}_\mathrm{p} + \rho_\mathrm{f} \boldsymbol{f}^\mathrm{shear}
+      \rho_\mathrm{f} \left(\partial_\mathrm{t} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \right) \boldsymbol{u} &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} + \rho_\mathrm{f} \left( \phi \boldsymbol{f}_\mathrm{p} + \boldsymbol{f}_\mathrm{sq} + \boldsymbol{f}^\mathrm{shear} \right)
       % \boldsymbol{\sigma} &= -p \boldsymbol{I} + \eta \left\{ \boldsymbol{\nabla v} + \left( \boldsymbol{\nabla v} \right)^\mathrm{T} \right\}
     \end{split}
     \label{Navier_Stokes}
@@ -143,9 +125,10 @@ $\boldsymbol{I}_i$は慣性モーメント，$\boldsymbol{N}_i^\mathrm{H}$は流
   \vspace{-4truemm}
 
   \noindent
-ここで，$\boldsymbol{u}$は全速度場，$\rho_\mathrm{f}$は流体の質量密度，$t$は時間，$\boldsymbol{\sigma}$は応力テンソル，
-$\phi_\mathrm{p}$は[0，1]の値を連続的に持つ界面関数，$\phi_\mathrm{f} \phi \boldsymbol{f}_\mathrm{p}$は粒子の剛直性を保証する体積力，
-$\boldsymbol{f}^\mathrm{shear}$は式\eqref{zigzag_flow}のように表される速度を生じさせる外部から働く力である．
+ここで，$t$は時間，$\boldsymbol{u}$は全速度場，$\rho_\mathrm{f}$は流体の質量密度，$\boldsymbol{\sigma}$は流体の応力テンソル，
+$\phi$は[0，1]の値を連続的に持つ界面関数，$\phi \boldsymbol{f}_\mathrm{p}$は粒子の剛直性を保証する体積力，
+$\boldsymbol{f}_\mathrm{sq}$はスイマーの泳動による力，
+$\boldsymbol{f}^\mathrm{shear}$は式\eqref{zigzag_flow}のように表される速度を流体に生じさせる外部から働く力である．
   \par
   \vspace{-4truemm}
   % \small
@@ -161,15 +144,36 @@ $\boldsymbol{f}^\mathrm{shear}$は式\eqref{zigzag_flow}のように表される
   % \normalsize
   \vspace{-4truemm}
 
+  \par
+2．Newton-Euler方程式\\
+  \vspace{-6truemm}
+  \begin{equation}
+    \begin{split}
+      \dot{\boldsymbol{R}}_i = \boldsymbol{V}_i, \quad \boldsymbol{\dot{Q_i}} = \mathrm{skew} (\boldsymbol{\Omega_i}) \cdot \boldsymbol{Q_i} \\
+      M_p \dot{\boldsymbol{V}_i} = \boldsymbol{F}_i^\mathrm{H}， \quad
+      \boldsymbol{I}_p \cdot \dot{\boldsymbol{\Omega}_i} = \boldsymbol{N}_i^\mathrm{H} + \boldsymbol{N}_i^\mathrm{b.h.}
+      % \boldsymbol{N}_i^\mathrm{b.h.} &= \frac{4}{3} \pi a^3 \rho h \boldsymbol{e} \times \boldsymbol{g}
+    \end{split}
+    \label{Newton_Euler}
+  \end{equation}
+  \vspace{-4truemm}
+
+  \noindent
+ここでスイマー$i$について，$\boldsymbol{R}_i$は位置，$\boldsymbol{V}_i$は速度，
+$\boldsymbol{Q_i}$は回転行列，$\boldsymbol{\Omega}_i$は角速度，
+$\mathrm{skew} (\boldsymbol{\Omega_i})$は$\boldsymbol{\Omega}_i$の交代行列を示す．
+$M_\mathrm{p}$と$\boldsymbol{I}_\mathrm{p}$はそれぞれスイマーの質量と慣性モーメントを表す．$\boldsymbol{F}_i^\mathrm{H}$は流体から受ける力，
+$\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルク，$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるトルクである．
+
   %% end 2．
   %% start 3．結果と考察
 
   \noindent
   {\bf \large 3．結果と考察}
   \par
-直径$5\Delta$のsquirmerについて，$64\Delta \times 128\Delta \times 64\Delta$の矩形システムでシミュレーションを行った．
-このシステムは$x$方向と$z$方向には周期的であるが，$y$方向には$y =1\Delta$と$y=159\Delta$の位置に配置された球状粒子の平行壁に挟まれている(Fig.\ref{Confinement_model})．
-ここで，$\Delta$は格子間隔と単位長さである．また，Puller型/Pusher型2成分の組成比を変えて計算を行った場合の局所密度の時間発展をFig．\ref{wave}に示す．
+直径$5\Delta$の一つのスイマーについて，$64\Delta \times 128\Delta \times 64\Delta$の矩形システムでシミュレーションを行った．
+
+ここで，$\Delta$は格子間隔と単位長さである．
 
   % \vspace{-2mm}
   % \begin{figure}[h]
@@ -198,10 +202,9 @@ $\boldsymbol{f}^\mathrm{shear}$は式\eqref{zigzag_flow}のように表される
 
   \noindent
 ここで，$W(=160\Delta)$は$y$方向のシステムサイズ,$T_0$は全計算時間，$\rho$は局所密度，$\rho_0$は平均密度である．
-Fig.\ref{wave}より，拘束空間内におけるPuller型の分率が高いほど，より進行波が明確に発生することが確認できた．
-そして，Puller型の分率が低くなるにつれて進行波の発生は抑制され，次第に進行波の発生が確認できなくなることも確認された．
-Puller型の分率が高いときは同方向に推進するPuller型の個体数も多く，そのためPuller型が運動するに従って生じる推進方向への収縮流場の影響を多大に受けて互いに引き付け合うことが，
-squirmer全体が疎密波のような集団運動を引き起こす要因になるのではないかと考えられる．
+ここで，である．
+bottom heavyな性質から生じるトルクの項を新たに追加することで，系にかかる重力の逆向きに進もうとするスイマーの性質を再現することができた．
+
 
 
   %% end 3．
