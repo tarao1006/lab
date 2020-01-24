@@ -172,32 +172,32 @@ $\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルク，$\boldsymbol{N}
   {\bf \large 3．結果と考察}
   \par
 直径$5\Delta$の一つのスイマーについて，$64\Delta \times 128\Delta \times 64\Delta$の矩形システムでシミュレーションを行った．
-ここで，$\Delta$は格子間隔と単位長さである．
+このシステムでは，x軸方向にせん断がかかっている(Fig.\ref{zigzag_image})．ここで，$\Delta$は格子間隔と単位長さである．
+また，粒子にかかるbottom heavyな性質によるトルクの時間発展を Fig.\ref{time_development_of_torque}に示す．
+  \vspace{-3truemm}
+  \begin{figure}[h]
+    \begin{tabular}{cc}
+      \hspace{-3truemm}
+      \begin{minipage}[t]{0.44\hsize}
+        \centering
+        \includegraphics[width=30truemm]{./images/zig_zag.jpg}
+        \vspace{-4truemm}
+        \hspace{-2truemm}
+        \caption{Simulation snapshot}
+        \label{zigzag_image}
+      \end{minipage}
 
-  % \vspace{-2mm}
-  % \begin{figure}[h]
-  %   \begin{tabular}{cc}
-  %     \hspace{-3mm}
-  %     \begin{minipage}[t]{0.44\hsize}
-  %       \centering
-  %       \includegraphics[width=24mm]{./images/Confinement_model.png}
-  %       \vspace{-4mm}
-  %       \hspace{-2mm}
-  %       \caption{Simulation snapshot}
-  %       \label{Confinement_model}
-  %     \end{minipage}
-
-  %     \hspace{2mm}
-  %     \vspace{-2mm}
-  %     \begin{minipage}[t]{0.44\hsize}
-  %       \includegraphics[width=37mm]{./images/wave.png}
-  %       \vspace{-10mm}
-  %       \caption{Time evolution of local density}
-  %       \label{wave}
-  %     \end{minipage}
-  %     \vspace{-1mm}
-  %   \end{tabular}
-  % \end{figure}
+      % \hspace{2mm}
+      % \vspace{-2mm}
+      \begin{minipage}[t]{0.44\hsize}
+        \includegraphics[width=37truemm]{./images/00.png}
+        \vspace{-10truemm}
+        \caption{Time evolution of bottom heaviness torque}
+        \label{wave}
+      \end{minipage}
+      % \vspace{-1mm}
+    \end{tabular}
+  \end{figure}
 
   \noindent
 ここで，$W(=160\Delta)$は$y$方向のシステムサイズ,$T_0$は全計算時間，$\rho$は局所密度，$\rho_0$は平均密度である．
