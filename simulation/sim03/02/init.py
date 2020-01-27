@@ -3,12 +3,21 @@ import shutil
 import numpy as np
 from pathlib import Path
 from pyudf import Udf
+from pyudf.rotation import z_rotation
 
 udf = Udf()
 udf.load_jsonconfig()
+
+degree = 2 * np.pi / 32 * 17
+q = z_rotation(degree)
+
 udf.data['object_type']['spherical_particle']['particle_spec'][0]['janus_slip_vel'] = 0.01
 udf.data['object_type']['spherical_particle']['particle_spec'][0]['janus_slip_mode'] = -50.0
 udf.data['gravity']['g'] = 0.06
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q0'] = q.q0
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q1'] = q.q1
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q2'] = q.q2
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q3'] = q.q3
 
 gammadots = np.arange(0.0, 0.105, 0.005)
 

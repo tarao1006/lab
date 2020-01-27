@@ -36,8 +36,8 @@
                         "y": 0.0,
                         "z": 0.0
                     },
-                    "janus_slip_vel": 0.0,
-                    "janus_slip_mode": 0.0,
+                    "janus_slip_vel": 0.01,
+                    "janus_slip_mode": -50.0,
                     "janus_rotlet_c1": 0.0,
                     "janus_rotlet_dipolr_c2": 0.0
                 }
@@ -105,13 +105,11 @@
             "z": "ON"
         },
         "pin": {
-            "type": "YES",
+            "type": "NO",
             "yes": {
                 "pin": [
-                    0
                 ],
                 "pin_rot": [
-                    0
                 ]
             }
         },
