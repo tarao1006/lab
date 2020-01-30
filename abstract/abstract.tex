@@ -84,7 +84,7 @@
   \textbf{\large 2．計算手法}
   \par
 マイクロスイマーのモデルとして，squirmerモデルを用いた．
-このモデルでは，粒子を球形とし，
+このモデルでは，粒子を球形とみなし，
 粒子表面において粒子と流体の速度差が式\eqref{boundary_I}で表される境界条件を用いる\cite{1}．
 
   \vspace{-3truemm}
@@ -100,9 +100,9 @@ $B_1$はフーリエ級数の係数第1項，
 $\theta$は動径ベクトルと推進方向との間の極角，
 $\hat{\boldsymbol{\theta}}$は単位極角ベクトル，
 $\alpha$はスイマーの種類を決定する定数である．
-$\alpha<0$ではPusher型，
+$\alpha>0$ではPuller型，
 $\alpha=0$ではNeutral型，
-$\alpha>0$ではPuller型を示す．
+$\alpha<0$ではPusher型を示す．
 直接数値計算は，squirmerモデルをSPMに組み込んで行った．
 SPMは固体と流体の2相のダイナミクス問題を効率的に計算する方法である\cite{2}．
 流体の支配方程式として非圧縮性流体におけるNavier-Stokes方程式\eqref{Navier_Stokes}を用いた．
@@ -115,7 +115,7 @@ SPMは固体と流体の2相のダイナミクス問題を効率的に計算す�
   \begin{equation}
     \begin{split}
       \boldsymbol{\nabla}\cdot\boldsymbol{u} &= 0 \\
-      \rho_\mathrm{f} \left(\partial_\mathrm{t} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \right) \boldsymbol{u} &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} + \rho_\mathrm{f} \left( \phi \boldsymbol{f}_\mathrm{p} + \boldsymbol{f}_\mathrm{sq} + \boldsymbol{f}^\mathrm{s} \right)
+      \rho_\mathrm{f} \left(\partial_\mathrm{t} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \right) \boldsymbol{u} &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} + \rho_\mathrm{f} \left( \phi \boldsymbol{f}_\mathrm{p} + \boldsymbol{f}_\mathrm{sq} + \boldsymbol{f}_\mathrm{s} \right)
     \end{split}
     \label{Navier_Stokes}
   \end{equation}
@@ -126,9 +126,8 @@ SPMは固体と流体の2相のダイナミクス問題を効率的に計算す�
 ここで，$t$は時間，$\boldsymbol{u}$は全速度場，$\rho_\mathrm{f}$は流体の質量密度，$\boldsymbol{\sigma}$は流体の応力テンソル，
 $\phi \boldsymbol{f}_\mathrm{p}$は粒子の剛直性を保証する体積力，
 $\boldsymbol{f}_\mathrm{sq}$はスイマーの泳動による力，
-$\boldsymbol{f}^\mathrm{s}$は式\eqref{zigzag_flow}のように表される速度を流体に生じさせる外力である．
-  \par
-  \vspace{-6truemm}
+$\boldsymbol{f}_\mathrm{s}$は式\eqref{zigzag_flow}のように表される速度を流体に生じさせる外力である．
+  \vspace{-3truemm}
   \small
   \begin{equation}
     v_x(y) =
@@ -168,7 +167,7 @@ $\mathrm{skew} (\boldsymbol{\Omega_i})$は$\boldsymbol{\Omega}_i$の交代行列
 $M_\mathrm{p}$と$\boldsymbol{I}_\mathrm{p}$はそれぞれスイマーの質量と慣性モーメントを表す．
 $\boldsymbol{F}_i^\mathrm{H}$は流体から受ける力，
 $\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルクである．
-球形粒子の場合$N^\mathrm{H}$は式\eqref{nh}で表される．
+球形粒子の場合，$N^\mathrm{H}$は式\eqref{nh}で表される．
   \vspace{-3truemm}
   \begin{equation}
     \boldsymbol{N^\mathrm{H}} = 4 \pi \mu a^3 \dot{\gamma}
@@ -178,7 +177,7 @@ $\boldsymbol{N}_i^\mathrm{H}$は流体から受けるトルクである．
 
   \noindent
 ここで，$\mu$は流体の粘度，$a$は球形粒子の半径，$\dot{\gamma}$はせん断速度である．
-$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるトルクで，式\eqref{nbh}によって計算される\cite{3}．
+$\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質により生じるトルクで，式\eqref{nbh}によって計算される\cite{3}．
   \vspace{-3truemm}
   \begin{equation}
     \boldsymbol{N}^\mathrm{b.h.} = \frac{4}{3} \pi a^3 \rho h \boldsymbol{e} \times \boldsymbol{g}
@@ -198,7 +197,7 @@ $\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるト
 一つの直径$5\Delta$のスイマーについて，$64\Delta \times 128\Delta \times 64\Delta$の矩形システムでシミュレーションを行った．
 このシステムでは，y軸方向に重力がかかり，x軸方向にせん断がかかっている．
 ここで，$\Delta$は格子間隔と単位長さである．
-通常の球形粒子とPusher型/Puller型の3種について，せん断の大きさと粒子の進行方向および回転の有無を表したものがFig.\ref{snapshots}である．
+通常の球形粒子とPuller型/Pusher型の3種について，せん断の大きさと粒子の進行方向および回転の有無を表したものがFig.\ref{snapshots}である．
   \vspace{-3truemm}
   \begin{figure}[h]
     \hspace{-3truemm}
@@ -214,8 +213,8 @@ $\boldsymbol{N}_i^\mathrm{b.h.}$はbottom heavyな性質によって生じるト
   \noindent
 ここで，$\dot{\gamma}$はせん断速度を表す．矢印は粒子の進行方向を表し，二つの曲がった矢印は粒子が回転していることを表す．
 粒子にかかるトルクのうち$N^\mathrm{b.h.}$が支配的な時，粒子の進行方向がある角度で固定され，
-$N^\mathrm{H}$が支配的な時，粒子は回転すると考えられるが，$\alpha$の値によらずその傾向が読み取れる．
-球形粒子の場合，シミューションによって分かった粒子の進行方向が固定されるギリギリの$\dot{\gamma}$の値と
+$N^\mathrm{H}$が支配的な時，粒子は回転すると考えられるが，その傾向が読み取れる．
+球形粒子の場合，シミューションによって分かった粒子の進行方向が固定されるギリギリの$\dot{\gamma}$の値と，
 式\eqref{nh}と\eqref{nbh}の和が0であるとして求まる$\dot{\gamma}$がよく一致していることが確認できた．
 
   %% end 3．
@@ -227,8 +226,8 @@ $N^\mathrm{H}$が支配的な時，粒子は回転すると考えられるが，
 マイクロスイマーのモデルにsquirmerモデルを採用し，
 スイマーにbottom heavyな性質によるトルクの影響を付与した上で粒子の挙動を解析した．
 その結果，通常の球形粒子については理論的な値をよく示すことを確認できた．
-流体の粘度に注目して解析を行うことおよび，
-スイマーの体積分率が大きい場合について解析を行うことが今後の課題である．
+流体の粘度に注目して解析を行うこと，
+およびスイマーの体積分率が大きい場合について解析を行うことが今後の課題である．
   \vspace{-7.5truemm}
 
   %% end 4．
@@ -243,7 +242,7 @@ $N^\mathrm{H}$が支配的な時，粒子は回転すると考えられるが，
   \vspace{-7truemm}
   %
   \bibitem{2}
-    Y. Nakayama，and R. Yamamoto, \textit{Phys. Rev. E}, \textbf{71}，036707 (2005).\\
+    Y. Nakayam and R. Yamamoto, \textit{Phys. Rev. E}, \textbf{71}，036707 (2005).\\
   %
   \vspace{-7truemm}
   %
