@@ -15,6 +15,7 @@ if __name__ == "__main__":
 
     new_dirs = []
     left = list(map(int, input('input left index:\n').split(' ')))
+    left = list(eval(input()))
     for i, direc in enumerate(dirs):
         if i in left:
             new_dirs.append(direc)
