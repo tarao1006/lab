@@ -17,7 +17,7 @@ udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q1
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q2'] = q.q2
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q3'] = q.q3
 
-gammadots = np.arange(0.0, 0.102, 0.002)
+gammadots = np.arange(0.0, 0.062, 0.002)
 
 if not Path(f'udf').exists():
     os.mkdir(f'udf')
