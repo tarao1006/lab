@@ -26,21 +26,9 @@ def triming_img(prefix):
 
 
 if __name__ == "__main__":
-    try:
-        sim_num = int(sys.argv[1])
-    except IndexError:
-        raise IndexError('sim_num must be selected.')
-    except ValueError:
-        raise ValueError('sim_num must be int.')
-    try:
-        sub_sim_num = int(sys.argv[2])
-    except IndexError:
-        sub_sim_num = None
-    except ValueError:
-        raise ValueError('sub_sim_num must be int.')
+    sim_num = 3
+    sub_sim_num = 1
 
-    prefix = f'/Users/taiga/Projects/lab/simluation/sim{sim_num:0=2.0f}/ImageCapture/output.udf/graphic'
-    if sub_sim_num is not None:
-        prefix = f'/Users/taiga/Projects/lab/simulation/sim{sim_num:0=2.0f}/udf/{sub_sim_num:0=2.0f}/ImageCapture/output.udf/graphic'
+    prefix = f'/Users/taiga/Projects/lab/simulation/sim{sim_num:0=2.0f}/{sub_sim_num:0=2.0f}/udf/040/output/output.udf/graphic'
     triming_img(prefix)
     subprocess.run(['ffmpeg', '-f', 'image2', '-r', '15', '-i', f'{prefix}/_%03d.jpg', '-r', '15', '-an', '-vcodec', 'libx264', '-pix_fmt', 'yuv420p', f'{sim_num:0=2.0f}_{sub_sim_num:0=3.0f}_video.mp4'])
