@@ -28,9 +28,9 @@ def triming_img(prefix):
 
 if __name__ == "__main__":
     sim_num = 3
-    for i in [2]:  # range(0, 3):
+    for i in range(0, 3):
         sub_sim_num = i
-        for j in ['030']:  # ['020', '030', '040', '050', '060']:
+        for j in ['020', '030', '040', '050', '060']:
             prefix = f'/Users/taiga/Projects/lab/simulation/sim{sim_num:0=2.0f}/{sub_sim_num:0=2.0f}/udf/{j}/output/output.udf/graphic'
             triming_img(prefix)
-        # subprocess.run(['ffmpeg', '-f', 'image2', '-r', '15', '-i', f'{prefix}/_%03d.jpg', '-r', '15', '-an', '-vcodec', 'libx264', '-pix_fmt', 'yuv420p', f'{sim_num:0=2.0f}_{sub_sim_num:0=3.0f}_video.mp4'])
+        subprocess.run(['ffmpeg', '-f', 'image2', '-r', '15', '-i', f'{prefix}/_%03d.jpg', '-r', '15', '-an', '-vcodec', 'libx264', '-pix_fmt', 'yuv420p', f'{sim_num:0=2.0f}_{sub_sim_num:0=3.0f}_video.mp4'])
