@@ -38,10 +38,7 @@ output.udf
 # addition
 output
 output.*
-fig
 *.ipynb
-*.mp4
-*.jpg
 python_files
 dirs.pickle
 *.err
