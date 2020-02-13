@@ -1,5 +1,8 @@
 # Simulation
 
+# sim00
+Bottom heavinessを付加することで、粒子の初期進行方向によらず、最終的に鉛直上向きに固定されることを確かめた。
+
 # sim01
 gammadotとB1を変化させた時ののomega_zの変化を調べる。
 g       : 0.0
