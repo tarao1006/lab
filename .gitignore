@@ -36,10 +36,8 @@ restart.udf
 output.udf
 
 # addition
+output.txt
 output
-output.*
-*.ipynb
-python_files
 dirs.pickle
 *.err
 *.out
