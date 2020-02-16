@@ -1,0 +1,36 @@
+\subsubsection{運動方程式}
+    \begin{align}
+        \dot{\boldsymbol{R}_i} &= \boldsymbol{V}_i \\
+        M_\mathrm{p} \dot{\boldsymbol{V}_i} &= \boldsymbol{F}^\mathrm{H}_i \\
+        \boldsymbol{I}_\mathrm{p} \cdot \dot{\boldsymbol{\Omega}_i} &=
+            \boldsymbol{N}^\mathrm{H}_i + \boldsymbol{N}^\mathrm{b.h.}_i
+    \end{align}
+
+ここで，$\boldsymbol{F}^\mathrm{H}_i$は流体から受ける力，
+$\boldsymbol{N}^\mathrm{H}_i$は流体から受けるトルク，
+$\boldsymbol{N}^\mathrm{b.h.}_i$はbottom heavy性によるトルクである．
+$M_\mathrm{p}$は粒子の質量，
+$\boldsymbol{I}_i$は慣性モーメント，
+$\dot{\boldsymbol{R}_i}$は粒子の位置，
+$\boldsymbol{V}_i$は粒子の速度，
+$\dot{\boldsymbol{\Omega}_i}$は粒子の角速度である．
+    \begin{figure}[htbp]
+        % \includegraphics[]{}
+        \label{bottom_heavyt_fig}
+        \caption{bottom heavy性を有するsquirmer}
+    \end{figure}
+
+\noindent
+Fig.\ref{bottom_heavy_fig}のように表されるsquirmerについて，
+bottom heavy性によるトルクは式\eqref{bottom_heavy}で計算される．
+    \begin{equation}
+        \boldsymbol{N}^\mathrm{b.h.} = \frac{4}{3} \pi a^3 \rho h \boldsymbol{e} \times \boldsymbol{g}
+        \label{bottom_heavy}
+    \end{equation}
+
+\noindent
+ここで，$a$は粒子の半径，
+$\rho$は粒子の密度，
+$h$は球の中心と粒子の重心との距離，
+$\boldsymbol{e}$は粒子の方向ベクトル，
+$\boldsymbol{g}$は重力ベクトルである．
