@@ -133,5 +133,7 @@ for i in range(size_Ns):
             r[2] + rotation_matrix[1][2]
         ]
         arrow(r, uv, [0, 0, 0, 1, 1, 1, 20])
+        print(r)
+        print(uv)
         sphere(r*10, spat[i % len(spat)])
     n_offset += Ns[i][0]
