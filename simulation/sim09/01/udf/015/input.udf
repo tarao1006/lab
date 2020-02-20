@@ -249,7 +249,7 @@ switch: {
 }
 output: {
     100,
-    800,
+    1200,
     "ON",
     {
         "output",
