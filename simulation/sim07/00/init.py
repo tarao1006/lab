@@ -12,6 +12,7 @@ degree = 2 * np.pi / 32 * 17
 q = z_rotation(degree)
 
 udf.data['gravity']['g'] = 0.06
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['r']['y'] = 70.0
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q0'] = q.q0
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q1'] = q.q1
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q2'] = q.q2
