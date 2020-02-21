@@ -42,5 +42,5 @@ dirs.pickle
 *.err
 *.out
 core*
-.png
-.mp4
+*.png
+*.mp4
