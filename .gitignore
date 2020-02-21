@@ -1,0 +1,46 @@
+
+# Created by https://www.gitignore.io/api/macos,python,jupyternotebooks
+# Edit at https://www.gitignore.io/?templates=macos,python,jupyternotebooks
+
+### LaTeX ###
+*.aux
+*.log
+*.fls
+*.dvi
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+### macOS ###
+.DS_Store
+._*
+
+### Python ###
+__pycache__/
+
+# kapsel
+restart.udf
+output.udf
+
+# addition
+output.txt
+output
+dirs.pickle
+*.err
+*.out
+core*
+*.png
+*.mp4

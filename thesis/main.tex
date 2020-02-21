@@ -1,0 +1,31 @@
+\documentclass[11pt, a4j, dvipdfmx]{jarticle}
+\usepackage{docmute}  % 上手く分割するために必要
+\input{settings.tex}  % usepackage, renewcommand, macroなど
+
+\begin{document}
+
+\input{/Users/taiga/Projects/lab/thesis/components/title/title.tex}  % タイトル
+\input{/Users/taiga/Projects/lab/thesis/components/index/index.tex}  % 目次
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/chapter1/chapter1.tex}  % 緒言
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/chapter2/chapter2.tex}  % 方法
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/chapter3/chapter3.tex}  % 結果と考察
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/chapter4/chapter4.tex}  % 結言
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/acknowledgement/acknowledgement.tex}  % 謝辞
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/bibliography/bibliography.tex}  % 参考文献
+
+\newpage
+\input{/Users/taiga/Projects/lab/thesis/components/appendix/appendix.tex}  % Appendix
+
+\end{document}
