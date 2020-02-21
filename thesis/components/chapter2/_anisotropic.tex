@@ -2,15 +2,17 @@
 本研究では，bottom heavy性をsquirmerに付加することで，squirmerの進行方向に異方性を与えた．
 その原理について述べる．
 周辺流体に流れを生じさせる，Pusher型/Puller型のsquirmerの進行方向が鉛直上上向きからずれた場合，
-Fig.\ref{anisotropy}のように擬似的なせん断流を考えることができる．
+Fig.\ref{fig:anisotropy}のように擬似的なせん断流を考えることができる．
+
     \begin{figure}[htbp]
-        % \includegraphics{}
-        \label{anisotropy}
+        \includegraphics[scale=1.0]{figs/sample.png}
         \caption{suirmerの存在による応力}
+        \label{fig:anisotropy}
     \end{figure}
 
 \noindent
 粒子が存在することによって生じる応力は式\eqref{particle_stresslet}のように表される\cite{}．
+
     \begin{equation}
         \boldsymbol{\Sigma}^\mathrm{p} = \frac{1}{V} \sum \boldsymbol{S}
         \label{particle_stresslet}
@@ -18,11 +20,12 @@ Fig.\ref{anisotropy}のように擬似的なせん断流を考えることがで
 
 \noindent
 ここで，$V$は系の体積，$\boldsymbol{S}$は単体粒子による応力である．
-系に存在するのが単体のsquirmerのみの場合，その応力は式\eqref{solitary_squirmer}により計算される\cite{}．
+系に存在するのが単体のsquirmerのみの場合，その応力は式\eqref{eq:solitary_squirmer}により計算される\cite{}．
+
     \begin{equation}
         \boldsymbol{S} = \\
             \frac{4}{3} \pi a^2 (3 \boldsymbol{e} \boldsymbol{e} - \boldsymbol{I}) B_2
-        \label{solitary_squirmer}
+        \label{eq:solitary_squirmer}
     \end{equation}
 
 \noindent
@@ -30,17 +33,20 @@ Fig.\ref{anisotropy}のように擬似的なせん断流を考えることがで
 $\boldsymbol{e}$はsquirmerの方向ベクトル，
 $\boldsymbol{I}$は単位行列である．
 したがって，これらの2式から，squirmer単体が存在することで生じる応力の$xy$成分は，
+
     \begin{equation}
         \boldsymbol{\Sigma}^\mathrm{p}_{xy} = \
             \frac{4 \pi a^2 B_2}{V} e_x e_y
     \end{equation}
+
 と表される．ここで，$e_i$はsquirmerの方向ベクトルの$i$成分である．
-この応力は，粒子の進行方向により，Fig.\ref{graph_particle_stresslet}のように表される．
+この応力は，粒子の進行方向により，Fig.\ref{fig:graph_particle_stresslet}のように表される．
 グラフから，粒子が定常的に回転している場合，この応力の影響はプラスとマイナスで打ち消されると考えられる．
+
     \begin{figure}[htbp]
-        % \includegraphics[]{}
-        \label{graph_particle_stresslet}
+        \includegraphics[scale=1.0]{/Users/taiga/Projects/lab/thesis/components/chapter2/figs/sample.png}
         \caption{$\boldsymbol{\Sigma}^\mathrm{p}_{xy}$と粒子の進行方向の関係}
+        \label{fig:graph_particle_stresslet}
     \end{figure}
 
 \noindent
@@ -48,10 +54,11 @@ $\boldsymbol{I}$は単位行列である．
 流体から受けるトルクとbottom heavy性によるトルクの大小関係から，粒子の回転が制限され，
 粒子の進行方向がいずれかの進行方向に固定された結果，応力に影響を与えると考えられる．
 例えば，$B_2$の値が正であるPuller型の場合，その進行方向が$0 〜 \pi / 2$の間に固定された場合，応力を大きくする方向に影響を与えると考えられる．
+
     \begin{figure}[htbp]
-        % \includegraphics[]{}
-        \label{graph_particle_stresslet2}
+        \includegraphics[scale=1.0]{/Users/taiga/Projects/lab/thesis/components/chapter2/figs/sample.png}
         \caption{粒子の進行方向が応力の大きさに与える影響}
+        \label{fig:graph_particle_stresslet2}
     \end{figure}
 
 \noindent
