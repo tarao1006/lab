@@ -14,6 +14,7 @@ q = z_rotation(degree)
 udf.data['object_type']['spherical_particle']['particle_spec'][0]['janus_slip_vel'] = 0.01
 udf.data['object_type']['spherical_particle']['particle_spec'][0]['janus_slip_mode'] = 50.0
 udf.data['gravity']['g'] = 0.06
+udf.data['switch']['init_distribution']['user_specify']['particles'][0]['r']['y'] = 70.0
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q0'] = q.q0
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q1'] = q.q1
 udf.data['switch']['init_distribution']['user_specify']['particles'][0]['q']['q2'] = q.q2
