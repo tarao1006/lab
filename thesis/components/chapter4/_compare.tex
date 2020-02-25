@@ -4,7 +4,7 @@
     \begin{align}
         N_z &= \boldsymbol{N}^\mathrm{H}_z + \boldsymbol{N}^\mathrm{b.h.}_z \notag \\
             &= 4 \pi \mu a^3 \dot{\gamma} - \frac{4}{3} \pi \rho h g \sin \theta
-        % \label{\ref{eq:sum_of_torque_z}}
+        \tag{\ref{eq:sum_of_torque_z}}
     \end{align}
 
 \noindent
@@ -18,37 +18,18 @@
     \end{figure}
 
 \noindent
-本研究では，パラメータを表\ref{tab:parameters}のように設定した．
-
-    \begin{table}[H]
-        \centering
-        \caption{設定したパラメータ}
-        \label{tab:parameters}
-        \begin{tabular}{cc}
-            \hline
-            $\mu$ & $1.0$ \\
-            $a$ & $5.0 \Delta$ \\
-            $\rho$ & $1.0$ \\
-            $h$ & $2.5\Delta$ \\
-            $g$ & 0.06 \\
-            \hline
-        \end{tabular}
-    \end{table}
-
-ここで，$\Delta$は格子間距離であり，長さの次元として用いている．
-また，流体の粘度$\mu$と質量密度$\rho$を基本単位として用いて，
-単位時間を$\rho \Delta ^2 / \mu$としている．
+本研究では，粒子の重心と球の中心のずれを$h = 2.5 \Delta$，重力の大きさを$g = 0.06$と設定した．
 $\dot{\gamma} < 0.05$の場合には粒子の進行方向は$0 < \theta < \pi / 2$のある角度に固定され，
 $\dot{\gamma} = 0.05$の場合に，粒子の進行方向は$\theta = \pi /2$に固定され，
 $\dot{\gamma} > 0.05$の場合に定常的に回転すると予想される．
-Fig.\ref{}は，\ref{fig:simulation_results}の上段のシミュレーション結果を抽出したものである．
+Fig.\ref{fig:extracted_results}は，Fig.\ref{fig:simulation_results}の上段のシミュレーション結果を抜粋したものである．
 
     \begin{figure}[htbp]
         \centering
         \includegraphics[scale=0.8]{/Users/taiga/Projects/lab/thesis/components/chapter4/figs/extracted_results.pdf}
-        \caption{$B_2=0$の場合のシミュレーション模式図とそのときのせん断速度の値}
-        \label{fig:simulation_results}
+        \caption{$B_2 = 0$の場合のシミュレーション模式図とそのときのせん断速度の値}
+        \label{fig:extracted_results}
     \end{figure}
 
 \noindent
-この図から，シミュレーション結果は理論的な値とよく一致していることが分かる．
+この図から，シミュレーション結果が示す粒子の挙動は，理論的な式によって導かれる挙動とよく一致していることが分かる．
