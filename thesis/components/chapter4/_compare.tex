@@ -1,41 +1,54 @@
 \subsection{理論値との比較}
 通常の球形粒子にbotton heavy性を仮定した場合について理論値との比較を行う．
-この場合，\ref{sec:squirmer_model}で述べたように，粒子にかかるトルクは，式\eqref{eq:hydro_torque}のように表される．
-    \begin{equation}
-        \boldsymbol{N}^\mathrm{H} + \boldsymbol{N}^\mathrm{b.h.} = \
-        4 \pi \mu a^3 \dot{\gamma} + \frac{4}{3} \pi a^3 \rho \boldsymbol{e} \times \boldsymbol{g}
-        \label{eq:hydro_torque}
-    \end{equation}
+この場合，\ref{sec:rotation}で述べたように，粒子にかかるトルクは，式\eqref{eq:sum_of_torque_z}のように表される．
+    \begin{align}
+        N_z &= \boldsymbol{N}^\mathrm{H}_z + \boldsymbol{N}^\mathrm{b.h.}_z \notag \\
+            &= 4 \pi \mu a^3 \dot{\gamma} - \frac{4}{3} \pi \rho h g \sin \theta
+        % \label{\ref{eq:sum_of_torque_z}}
+    \end{align}
 
 \noindent
-したがって，各トルクとその和はFig.\ref{fig:sum_of_torque}のように表される．
+このトルクはFig.\ref{fig:sum_of_torque}のように表される．
 
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[scale=1.0]{/Users/taiga/Projects/lab/thesis/components/chapter2/figs/sample.png}
+        \includegraphics[scale=0.8]{/Users/taiga/Projects/lab/thesis/components/chapter4/figs/sum_of_torque.pdf}
         \caption{流体から受けるトルクとbottom heavy性によるトルクの和}
         \label{fig:sum_of_torque}
     \end{figure}
 
 \noindent
-パラメータを表\ref{tab:parameters}のように設定した場合，
+本研究では，パラメータを表\ref{tab:parameters}のように設定した．
+
+    \begin{table}[H]
+        \centering
+        \caption{設定したパラメータ}
+        \label{tab:parameters}
+        \begin{tabular}{cc}
+            \hline
+            $\mu$ & $1.0$ \\
+            $a$ & $5.0 \Delta$ \\
+            $\rho$ & $1.0$ \\
+            $h$ & $2.5\Delta$ \\
+            $g$ & 0.06 \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+ここで，$\Delta$は格子間距離であり，長さの次元として用いている．
+また，流体の粘度$\mu$と質量密度$\rho$を基本単位として用いて，
+単位時間を$\rho \Delta ^2 / \mu$としている．
 $\dot{\gamma} < 0.05$の場合には粒子の進行方向は$0 < \theta < \pi / 2$のある角度に固定され，
 $\dot{\gamma} = 0.05$の場合に，粒子の進行方向は$\theta = \pi /2$に固定され，
 $\dot{\gamma} > 0.05$の場合に定常的に回転すると予想される．
-ここで，$\Delta$は格子間距離であり，長さの単位として用いている．
-また，$\mu$と$\rho$を基本単位として用いて，時間と重さの単位として用いている．
+Fig.\ref{}は，\ref{fig:simulation_results}の上段のシミュレーション結果を抽出したものである．
 
-\begin{table}[htbp]
-    \centering
-    \caption{設定したパラメータ}
-    \label{tab:parameters}
-    \begin{tabular}{cc}
-        \hline
-        $\mu$ & $1.0$ \\
-        $a$ & $5.0 \Delta$ \\
-        $\rho$ & $1.0$ \\
-        $h$ & $2.5\Delta$ \\
-        $\boldsymbol{g}$ & (0, 0.06, 0) \\
-        \hline
-    \end{tabular}
-\end{table}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[scale=0.8]{/Users/taiga/Projects/lab/thesis/components/chapter4/figs/extracted_results.pdf}
+        \caption{$B_2=0$の場合のシミュレーション模式図とそのときのせん断速度の値}
+        \label{fig:simulation_results}
+    \end{figure}
+
+\noindent
+この図から，シミュレーション結果は理論的な値とよく一致していることが分かる．

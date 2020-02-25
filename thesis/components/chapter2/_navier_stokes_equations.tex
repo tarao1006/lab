@@ -2,7 +2,7 @@
     \begin{align}
         \rho_\mathrm{f} (\partial _t + \boldsymbol{u} \cdot \boldsymbol{\nabla} ) \boldsymbol{u} &= 
             \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} + 
-            \rho_\mathrm{f} (\phi \boldsymbol{f}_\mathrm{p} + \boldsymbol{f}_\mathrm{sq} + \boldsymbol{f}_\mathrm{s}) \\
+            \rho_\mathrm{f} \left( \phi \boldsymbol{f}_\mathrm{p} + \boldsymbol{f}_\mathrm{sq} + \boldsymbol{f}_\mathrm{s} \right) \\
         \boldsymbol{\nabla} \cdot \boldsymbol{u} &= 0
     \end{align}
 
@@ -17,8 +17,8 @@ $\boldsymbol{f}_\mathrm{s}$はジグザグ流を生じる力である．
     \begin{equation}
         v_x(y) =
         \begin{cases}
-            \dot{\gamma} \left( - y -L_y/2 \right) & (-L_y/2 < y \geq -L_y/4) \\
-            \dot{\gamma} y                        & (-L_y/4 < y \geq  L_y/4) \\
+            \dot{\gamma} \left( - y - L_y/2 \right) & (-L_y/2 < y \geq -L_y/4) \\
+            \dot{\gamma} y                          & (-L_y/4 < y \geq  L_y/4) \\
             \dot{\gamma} \left( - y + L_y/2 \right) & ( L_y/4 < y \geq  L_y/2)
         \end{cases}
         \label{eq:zig_zag}
