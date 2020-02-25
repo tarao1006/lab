@@ -17,8 +17,16 @@
 しかし，流体的相互作用が複雑であり，莫大な計算コストを要することから，解析例が少ない対象でもある．
 そのため，マイクロスイマーを解析するには計算負荷を軽減することが重要となる．
 
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[scale=0.7]{/Users/taiga/Projects/lab/thesis/components/chapter1/figs/puller.png}
+        \caption{マイクロスイマーの一種であるクラミドモナスの泳動の様子\cite{Chlamydomonas}}
+    \end{figure}
+
 
 \subsection{研究目的}
+\label{sec:purpose}
+
 \par
 マイクロスイマー分散系がコロイド分散系と異なる値を示す一例として有効粘度が挙げられる．
 有効粘度は，式\eqref{eq:effective_viscosity}のように表される．
@@ -32,7 +40,7 @@
 ここで，$\sigma$は系にかかる応力，$\dot{\gamma}$はせん断速度である．
 Rafa\"iらは，泳動するクラミドモナスと泳動しないクラミドモナスとで，
 有効粘度の値に違いが見られることを実験により検証しており，
-マイクロスイマーの進行方向が異方的であることから，その値の違いが生じると述べられている\cite{}．
+マイクロスイマーの進行方向が異方的であることから，その値の違いが生じると述べられている\cite{effective_viscosity}．
 そこで，シミュレーション上でマイクロスイマーの進行方向が異方的になる原因と予測される性質を付加し，
 その挙動を調べることを本研究の目的とした．
 本研究では，マイクロスイマーが，重心が体の中心からずれているbottom heavy性を持ち，
