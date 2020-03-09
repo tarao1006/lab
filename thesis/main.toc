@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.2}Smoothed Profile Method}{5}
 \contentsline {subsection}{\numberline {2.3}支配方程式}{6}
 \contentsline {subsubsection}{\numberline {2.3.1}Navier-Stokes方程式}{6}
-\contentsline {subsubsection}{\numberline {2.3.2}運動方程式}{6}
+\contentsline {subsubsection}{\numberline {2.3.2}Squirmerの運動方程式}{6}
 \contentsline {subsection}{\numberline {2.4}シミュレーション条件}{7}
 \contentsline {section}{\numberline {3}\relax \fontsize {12}{17}\selectfont 理論}{8}
 \contentsline {subsection}{\numberline {3.1}トルクと粒子の回転}{8}
