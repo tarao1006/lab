@@ -1,4 +1,5 @@
 \subsection{Squirmerモデル}
+\label{sec:squirmer}
     \begin{figure}[htbp]
         \centering
         \includegraphics[scale=1.0]{/Users/taiga/Projects/lab/thesis/components/chapter2/figs/system.pdf}
@@ -6,6 +7,8 @@
         中央の球がsquirmerを表す．
         Squirmerの方向ベクトルと$y$軸との角度を$\theta$，
         z軸との角度を$\phi$とした．
+        $\theta$は$y$軸上を$0$とし，時計回りに$0 \leq \theta < 2 \pi$の値をとり，
+        $\theta$は$z$軸上を$0$とし，反時計回りに$0 \leq \phi < 2 \pi$の値をとる．
         ただし，本研究では$xy$平面上を$x$軸方向に流れる流体を考えたので，
         $\phi = \pi / 2$に固定されているとした．}
         \label{fig:system}
@@ -13,14 +16,11 @@
 
 マイクロスイマーのモデルとして，球形のsquirmerモデル\cite{squirmer}を採用した．
 このモデルでは，球形の粒子表面において，粒子と流体の速度差が式\eqref{eq:squirmer}で表されるようなsliding境界条件を用いる．
-
     \begin{equation}
         \boldsymbol{u}^\mathrm{s} = 
             \sum_{n=1}^\infty\frac{2}{n(n + 1)} B_n P_n^\prime(\cos{\theta}) \sin{\theta} \hat{\boldsymbol{\theta}}
         \label{eq:squirmer}
     \end{equation}
-
-\noindent
 ここで， 式中の$\theta$および$\boldsymbol{\hat{\theta}}$はFig.\ref{fig:system}のように表される角度および単位角度ベクトルである．
 本研究では，$xy$平面上を$x$軸正の向きに流れるせん断流を考えたので，
 Fig.\ref{fig:system}中の$\varphi$は$\pi / 2$で固定されているとした．
@@ -31,20 +31,16 @@ $P^\prime_n$は $n$次Legendre多項式の導関数である．
 $n=2$の項はsquirmerの存在によって生じる応力を決めるが，
 $n \geq 3$の項は，泳動速度，および応力に影響を与えないので，
 式\eqref{eq:squirmer}は，第1，2項のみを考えることで，式\eqref{eq:squirmer2}の様に簡略化できる．
-
     \begin{equation}
         \boldsymbol{u}^s =
             B_1 \left( \sin{\theta} + \frac{\alpha}{2} \sin{2\theta} \right) \hat{\boldsymbol{\theta}}
         \label{eq:squirmer2}
     \end{equation}
-
-\noindent
 ここで，$B_1$はマイクロスイマーの進行速度の大きさ$(U = 2/3 B_1)$を与える．
 ただし，本研究では，squirmer粒子の移動の影響を排除するために，$B_1 = 0.01$と十分に小さい値に設定した．
 また，$\alpha = B_2/B_1$はその符号によりスイマーの種類を表す定数となる．
 $\alpha > 0$をPuller型，$\alpha = 0$をNeutral型，$\alpha < 0$をPusher型と呼ぶ．
 Puller型は，泳動方向に収縮流を生成し，Pusher型は伸長流を生成する．
-
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{/Users/taiga/Projects/lab/thesis/components/chapter2/figs/microswimmers.pdf}
