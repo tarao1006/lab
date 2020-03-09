@@ -9,15 +9,14 @@
 \usepackage[T1]{fontenc}
 \usepackage{etoolbox}
 \usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}  % 余白
-\usepackage{here}
 \usepackage{comment}
 \usepackage{cases}
 \usepackage[version=3]{mhchem}
 \usepackage{layout}
 \usepackage{wrapfig}
 \usepackage{indentfirst}
-\usepackage{comment}
 \usepackage{txfonts}
+\usepackage{url}
 
 
 %\renewcommand{\indent}{\hspace*{1zw}}
@@ -42,8 +41,8 @@
   \else
     \global \@minipagefalse
     \hbox to\hsize{\hfil\box\@tempboxa\hfil}  % センタリング
-%   \hbox to\hsize{\box\@tempboxa\hfil}%      左詰め
-%   \hbox to\hsize{\hfil\box\@tempboxa}%      右詰め
+  % \hbox to\hsize{\box\@tempboxa\hfil}%      左詰め
+  % \hbox to\hsize{\hfil\box\@tempboxa}%      右詰め
   \fi
   \vskip\belowcaptionskip}
  \DeclareRobustCommand\cite{\unskip
