@@ -15,13 +15,12 @@ $\boldsymbol{f}_\mathrm{s}$はジグザグ流を生じる力である．
 ジグザグ流とは，式\eqref{eq:zig_zag}のような速度プロファイルで表される流体の流れである．
 この流れは，$-L_y/4 \geq y \geq L_y/4$の範囲がクエット流を表しているが，
 $L_y \rightarrow \infty$を考えることで，厳密にクエット流とみなすことができる．
-
     \begin{equation}
         v_x(y) =
         \begin{cases}
-            \dot{\gamma} \left( - y - L_y/2 \right) & (-L_y/2 < y \geq -L_y/4) \\
-            \dot{\gamma} y                          & (-L_y/4 < y \geq  L_y/4) \\
-            \dot{\gamma} \left( - y + L_y/2 \right) & ( L_y/4 < y \geq  L_y/2)
+            \dot{\gamma} \left( - y - L_y/2 \right) & (-L_y/2 < y \leq -L_y/4) \\
+            \dot{\gamma} y                          & (-L_y/4 < y \leq  L_y/4) \\
+            \dot{\gamma} \left( - y + L_y/2 \right) & ( L_y/4 < y \leq  L_y/2)
         \end{cases}
         \label{eq:zig_zag}
     \end{equation}
